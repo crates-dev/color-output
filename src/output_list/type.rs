@@ -11,7 +11,7 @@ use crate::Output;
 /// ### Using the output Method
 ///
 /// ```rust
-/// use ltpp_output::*;
+/// use color_output::*;
 /// OutputList(vec![
 ///     Output {
 ///         text: "test_output_list_struct_1",

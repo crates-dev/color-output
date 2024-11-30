@@ -19,7 +19,7 @@ use std::borrow::Cow;
 /// ### Using the output Function
 ///
 /// ```rust
-/// use ltpp_output::*;
+/// use color_output::*;
 /// ```
 ///
 /// ## Using the Constructor
@@ -27,7 +27,7 @@ use std::borrow::Cow;
 /// ### Using the output Function
 ///
 /// ```rust
-/// use ltpp_output::*;
+/// use color_output::*;
 /// ```
 pub fn output(output: Output) {
     // Text

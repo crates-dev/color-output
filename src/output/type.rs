@@ -12,7 +12,7 @@ use crate::*;
 /// ### Using the output Function
 ///
 /// ```rust
-/// use ltpp_output::*;
+/// use color_output::*;
 /// output(Output {
 ///     text: "test_output_struct",
 ///     text_color: ColorType::Use(Color::Default),
@@ -31,7 +31,7 @@ use crate::*;
 /// ### Using the output Method
 ///
 /// ```rust
-/// use ltpp_output::*;
+/// use color_output::*;
 /// Output {
 ///     text: "test_output_struct_output",
 ///     text_color: ColorType::Use(Color::Default),

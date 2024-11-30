@@ -26,7 +26,7 @@ impl<'a> OutputBuilder<'a> {
     ///
     /// # Returns
     /// - `&mut Self`: A mutable reference to the struct for method chaining.
-    pub fn set_text(&mut self, text: &'a str) -> &mut Self {
+    pub fn text(&mut self, text: &'a str) -> &mut Self {
         self.output.text = text;
         self
     }
@@ -38,7 +38,7 @@ impl<'a> OutputBuilder<'a> {
     ///
     /// # Returns
     /// - `&mut Self`: A mutable reference to the struct for method chaining.
-    pub fn set_text_color(&mut self, text_color: ColorType) -> &mut Self {
+    pub fn text_color(&mut self, text_color: ColorType) -> &mut Self {
         self.output.text_color = text_color;
         self
     }
@@ -50,7 +50,7 @@ impl<'a> OutputBuilder<'a> {
     ///
     /// # Returns
     /// - `&mut Self`: A mutable reference to the struct for method chaining.
-    pub fn set_text_bg_color(&mut self, text_bg_color: ColorType) -> &mut Self {
+    pub fn text_bg_color(&mut self, text_bg_color: ColorType) -> &mut Self {
         self.output.text_bg_color = text_bg_color;
         self
     }
@@ -62,7 +62,7 @@ impl<'a> OutputBuilder<'a> {
     ///
     /// # Returns
     /// - `&mut Self`: A mutable reference to the struct for method chaining.
-    pub fn set_text_blod(&mut self, text_blod: bool) -> &mut Self {
+    pub fn text_blod(&mut self, text_blod: bool) -> &mut Self {
         self.output.text_blod = text_blod;
         self
     }
@@ -74,7 +74,7 @@ impl<'a> OutputBuilder<'a> {
     ///
     /// # Returns
     /// - `&mut Self`: A mutable reference to the struct for method chaining.
-    pub fn set_show_time(&mut self, show_time: bool) -> &mut Self {
+    pub fn show_time(&mut self, show_time: bool) -> &mut Self {
         self.output.show_time = show_time;
         self
     }
@@ -86,7 +86,7 @@ impl<'a> OutputBuilder<'a> {
     ///
     /// # Returns
     /// - `&mut Self`: A mutable reference to the struct for method chaining.
-    pub fn set_time_text_color(&mut self, time_text_color: ColorType) -> &mut Self {
+    pub fn time_text_color(&mut self, time_text_color: ColorType) -> &mut Self {
         self.output.time_text_color = time_text_color;
         self
     }
@@ -98,7 +98,7 @@ impl<'a> OutputBuilder<'a> {
     ///
     /// # Returns
     /// - `&mut Self`: A mutable reference to the struct for method chaining.
-    pub fn set_time_bg_color(&mut self, time_bg_color: ColorType) -> &mut Self {
+    pub fn time_bg_color(&mut self, time_bg_color: ColorType) -> &mut Self {
         self.output.time_bg_color = time_bg_color;
         self
     }
@@ -110,7 +110,7 @@ impl<'a> OutputBuilder<'a> {
     ///
     /// # Returns
     /// - `&mut Self`: A mutable reference to the struct for method chaining.
-    pub fn set_time_text_blod(&mut self, time_text_blod: bool) -> &mut Self {
+    pub fn time_text_blod(&mut self, time_text_blod: bool) -> &mut Self {
         self.output.time_text_blod = time_text_blod;
         self
     }
@@ -122,7 +122,7 @@ impl<'a> OutputBuilder<'a> {
     ///
     /// # Returns
     /// - `&mut Self`: A mutable reference to the struct for method chaining.
-    pub fn set_split_text(&mut self, split: &'a str) -> &mut Self {
+    pub fn split_text(&mut self, split: &'a str) -> &mut Self {
         self.output.split = split;
         self
     }
@@ -134,7 +134,7 @@ impl<'a> OutputBuilder<'a> {
     ///
     /// # Returns
     /// - `&mut Self`: A mutable reference to the struct for method chaining.
-    pub fn set_split_text_color(&mut self, split_color: ColorType) -> &mut Self {
+    pub fn split_text_color(&mut self, split_color: ColorType) -> &mut Self {
         self.output.split_color = split_color;
         self
     }
@@ -146,7 +146,7 @@ impl<'a> OutputBuilder<'a> {
     ///
     /// # Returns
     /// - `&mut Self`: A mutable reference to the struct for method chaining.
-    pub fn set_split_bg_color(&mut self, split_bg_color: ColorType) -> &mut Self {
+    pub fn split_bg_color(&mut self, split_bg_color: ColorType) -> &mut Self {
         self.output.split_bg_color = split_bg_color;
         self
     }
@@ -158,7 +158,7 @@ impl<'a> OutputBuilder<'a> {
     ///
     /// # Returns
     /// - `&mut Self`: A mutable reference to the struct for method chaining.
-    pub fn set_split_text_blod(&mut self, split_text_blod: bool) -> &mut Self {
+    pub fn split_text_blod(&mut self, split_text_blod: bool) -> &mut Self {
         self.output.split_text_blod = split_text_blod;
         self
     }
@@ -170,7 +170,7 @@ impl<'a> OutputBuilder<'a> {
     ///
     /// # Returns
     /// - `&mut Self`: Returns a mutable reference to the current `Output` instance, allowing method chaining.
-    pub fn set_endl(&mut self, endl: bool) -> &mut Self {
+    pub fn endl(&mut self, endl: bool) -> &mut Self {
         self.output.endl = endl;
         self
     }

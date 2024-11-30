@@ -31,7 +31,7 @@ cargo add ltpp-output
 #### Using `output` Function
 
 ```rust
-use ltpp_output::*;
+use color_output::*;
 output(Output {
     text: "test_output_struct",
     text_color: ColorType::Use(Color::Default),
@@ -50,7 +50,7 @@ output(Output {
 #### Using `output` Method
 
 ```rust
-use ltpp_output::*;
+use color_output::*;
 Output {
     text: "test_output_struct_output",
     text_color: ColorType::Use(Color::Default),
@@ -70,7 +70,7 @@ Output {
 ### Array of Structs
 
 ```rust
-use ltpp_output::*;
+use color_output::*;
 OutputList(vec![
     Output {
         text: "test_output_list_struct_1",
@@ -107,18 +107,18 @@ OutputList(vec![
 #### Using `output` Function
 
 ```rust
-use ltpp_output::*;
+use color_output::*;
 output(
     OutputBuilder::new_from(Output::default())
-        .set_text("test_output_builder")
-        .set_text_color(ColorType::Color256(0xffffff))
-        .set_text_bg_color(ColorType::Color256(0xffffff))
-        .set_split_bg_color(ColorType::Color256(0xffffff))
-        .set_time_text_color(ColorType::Rgb(255, 200, 255))
-        .set_text_blod(true)
-        .set_time_text_blod(true)
-        .set_show_time(true)
-        .set_endl(true)
+        .text("test_output_builder")
+        .text_color(ColorType::Color256(0xffffff))
+        .text_bg_color(ColorType::Color256(0xffffff))
+        .split_bg_color(ColorType::Color256(0xffffff))
+        .time_text_color(ColorType::Rgb(255, 200, 255))
+        .text_blod(true)
+        .time_text_blod(true)
+        .show_time(true)
+        .endl(true)
         .build(),
 );
 ```
@@ -126,16 +126,16 @@ output(
 #### Using `output` Method
 
 ```rust
-use ltpp_output::*;
+use color_output::*;
 OutputBuilder::new()
-    .set_text("test_output_builder_output")
-    .set_text_bg_color(ColorType::Color256(0xffffff))
-    .set_text_color(ColorType::Color256(0xffffff))
-    .set_time_text_color(ColorType::Rgb(255, 200, 255))
-    .set_text_blod(true)
-    .set_time_text_blod(true)
-    .set_show_time(true)
-    .set_endl(true)
+    .text("test_output_builder_output")
+    .text_bg_color(ColorType::Color256(0xffffff))
+    .text_color(ColorType::Color256(0xffffff))
+    .time_text_color(ColorType::Rgb(255, 200, 255))
+    .text_blod(true)
+    .time_text_blod(true)
+    .show_time(true)
+    .endl(true)
     .build()
     .output();
 ```
@@ -143,13 +143,13 @@ OutputBuilder::new()
 ### Array Builder
 
 ```rust
-use ltpp_output::*;
+use color_output::*;
 OutputListBuilder::new_from(vec![Output::default()])
     .add(
         OutputBuilder::new()
-            .set_text("text")
-            .set_text_bg_color(ColorType::Use(Color::Blue))
-            .set_endl(false)
+            .text("text")
+            .text_bg_color(ColorType::Use(Color::Blue))
+            .endl(false)
             .build(),
     )
     .add(Output {
@@ -180,7 +180,7 @@ OutputListBuilder::new_from(vec![Output::default()])
 #### Passing Struct
 
 ```rust
-use ltpp_output::*;
+use color_output::*;
 output_macro!(Output {
     text: "test_proc_macro",
     text_color: ColorType::default(),
@@ -199,22 +199,22 @@ output_macro!(Output {
 #### Passing Builder
 
 ```rust
-use ltpp_output::*;
+use color_output::*;
 output_macro!(OutputBuilder::new()
-    .set_text("test_output_builder")
-    .set_text_color(ColorType::Use(Color::Cyan))
-    .set_time_text_color(ColorType::Use(Color::Blue))
-    .set_text_blod(true)
-    .set_time_text_blod(true)
-    .set_show_time(true)
-    .set_endl(true)
+    .text("test_output_builder")
+    .text_color(ColorType::Use(Color::Cyan))
+    .time_text_color(ColorType::Use(Color::Blue))
+    .text_blod(true)
+    .time_text_blod(true)
+    .show_time(true)
+    .endl(true)
     .build());
 ```
 
 #### Multiple Inputs
 
 ```rust
-use ltpp_output::*;
+use color_output::*;
 output_macro!(
     Output {
         text: "test_proc_macro",
@@ -230,22 +230,22 @@ output_macro!(
         ..Default::default()
     },
     OutputBuilder::new()
-        .set_text("test_output_builder1")
-        .set_text_color(ColorType::Color256(0xffffff))
-        .set_time_text_color(ColorType::Rgb(255, 200, 255))
-        .set_text_blod(true)
-        .set_time_text_blod(true)
-        .set_show_time(true)
-        .set_endl(true)
+        .text("test_output_builder1")
+        .text_color(ColorType::Color256(0xffffff))
+        .time_text_color(ColorType::Rgb(255, 200, 255))
+        .text_blod(true)
+        .time_text_blod(true)
+        .show_time(true)
+        .endl(true)
         .build(),
     OutputBuilder::new()
-        .set_text("test_output_builder2")
-        .set_text_color(ColorType::Color256(0xffffff))
-        .set_time_text_color(ColorType::Rgb(255, 200, 255))
-        .set_text_blod(true)
-        .set_time_text_blod(true)
-        .set_show_time(true)
-        .set_endl(true)
+        .text("test_output_builder2")
+        .text_color(ColorType::Color256(0xffffff))
+        .time_text_color(ColorType::Rgb(255, 200, 255))
+        .text_blod(true)
+        .time_text_blod(true)
+        .show_time(true)
+        .endl(true)
         .build()
 );
 ```

@@ -10,7 +10,7 @@
 /// ## Using the Struct
 ///
 /// ```rust
-/// use ltpp_output::*;
+/// use color_output::*;
 /// output_macro!(Output {
 ///     text: "test_proc_macro",
 ///     text_color: ColorType::default(),
@@ -29,22 +29,22 @@
 /// ## Using the Constructor
 ///
 /// ```rust
-/// use ltpp_output::*;
+/// use color_output::*;
 /// output_macro!(OutputBuilder::new()
-///     .set_text("test_output_builder")
-///     .set_text_color(ColorType::Use(Color::Cyan))
-///     .set_time_text_color(ColorType::Use(Color::Blue))
-///     .set_text_blod(true)
-///     .set_time_text_blod(true)
-///     .set_show_time(true)
-///     .set_endl(true)
+///     .text("test_output_builder")
+///     .text_color(ColorType::Use(Color::Cyan))
+///     .time_text_color(ColorType::Use(Color::Blue))
+///     .text_blod(true)
+///     .time_text_blod(true)
+///     .show_time(true)
+///     .endl(true)
 ///     .build());
 /// ```
 ///
 /// ## Multiple Inputs
 ///
 /// ```rust
-/// use ltpp_output::*;
+/// use color_output::*;
 /// output_macro!(
 ///     Output {
 ///         text: "test_proc_macro",
@@ -60,22 +60,22 @@
 ///         ..Default::default()
 ///     },
 ///     OutputBuilder::new()
-///         .set_text("test_output_builder1")
-///         .set_text_color(ColorType::Color256(0xffffff))
-///         .set_time_text_color(ColorType::Rgb(255, 200, 255))
-///         .set_text_blod(true)
-///         .set_time_text_blod(true)
-///         .set_show_time(true)
-///         .set_endl(true)
+///         .text("test_output_builder1")
+///         .text_color(ColorType::Color256(0xffffff))
+///         .time_text_color(ColorType::Rgb(255, 200, 255))
+///         .text_blod(true)
+///         .time_text_blod(true)
+///         .show_time(true)
+///         .endl(true)
 ///         .build(),
 ///     OutputBuilder::new()
-///         .set_text("test_output_builder2")
-///         .set_text_color(ColorType::Color256(0xffffff))
-///         .set_time_text_color(ColorType::Rgb(255, 200, 255))
-///         .set_text_blod(true)
-///         .set_time_text_blod(true)
-///         .set_show_time(true)
-///         .set_endl(true)
+///         .text("test_output_builder2")
+///         .text_color(ColorType::Color256(0xffffff))
+///         .time_text_color(ColorType::Rgb(255, 200, 255))
+///         .text_blod(true)
+///         .time_text_blod(true)
+///         .show_time(true)
+///         .endl(true)
 ///         .build()
 /// );
 /// ```

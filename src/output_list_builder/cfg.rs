@@ -6,9 +6,9 @@ fn test_new_from_output_list_builder() {
     OutputListBuilder::new_from(vec![Output::default()])
         .add(
             OutputBuilder::new()
-                .set_text("text")
-                .set_text_bg_color(ColorType::Use(Color::Blue))
-                .set_endl(false)
+                .text("text")
+                .text_bg_color(ColorType::Use(Color::Blue))
+                .endl(false)
                 .build(),
         )
         .add(Output {
