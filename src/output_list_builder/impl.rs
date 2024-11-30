@@ -1,0 +1,118 @@
+use crate::{output, Output};
+
+use super::r#type::OutputListBuilder;
+
+impl<'a> OutputListBuilder<'a> {
+    /// Creates a new empty `OutputListBuilder`.
+    ///
+    /// # Returns
+    /// - `Self`: A new instance of `OutputListBuilder` with an empty output list.
+    pub fn new() -> Self {
+        Self {
+            output_list: vec![],
+        }
+    }
+
+    /// Creates a new `OutputListBuilder` from a given vector of outputs.
+    ///
+    /// # Parameters
+    /// - `output_list`: A vector of `Output` items to initialize the list with.
+    ///
+    /// # Returns
+    /// - `Self`: A new instance of `OutputListBuilder` containing the specified outputs.
+    pub fn new_from(output_list: Vec<Output<'a>>) -> Self {
+        Self { output_list }
+    }
+
+    /// Adds an output item to the output list.
+    ///
+    /// # Parameters
+    /// - `&mut self`: A mutable reference to the current instance of `OutputListBuilder`.
+    /// - `output`: The `Output` item to be added to the list.
+    ///
+    /// # Returns
+    /// - `&mut Self`: A mutable reference to the current instance, allowing for method chaining.
+    pub fn add(&mut self, output: Output<'a>) -> &mut Self {
+        self.output_list.push(output);
+        self
+    }
+
+    /// Removes an output item from the list at the specified index.
+    ///
+    /// # Parameters
+    /// - `&mut self`: A mutable reference to the current instance of `OutputListBuilder`.
+    /// - `idx`: The index of the output item to be removed.
+    ///
+    /// # Returns
+    /// - `&mut Self`: A mutable reference to the current instance, allowing for method chaining.
+    ///
+    /// If the index is out of bounds, the list remains unchanged.
+    pub fn remove(&mut self, idx: usize) -> &mut Self {
+        if idx >= self.output_list.len() {
+            return self;
+        }
+        self.output_list.remove(idx);
+        self
+    }
+
+    /// Clears all output items from the output list.
+    ///
+    /// # Parameters
+    /// - `&mut self`: A mutable reference to the current instance of `OutputListBuilder`.
+    pub fn clear(&mut self) {
+        self.output_list.clear();
+    }
+
+    /// Runs all output items in the list, executing their output logic.
+    ///
+    /// # Parameters
+    /// - `&mut self`: A mutable reference to the current instance of `OutputListBuilder`.
+    ///
+    /// # Returns
+    /// - `&mut Self`: A mutable reference to the current instance, allowing for method chaining.
+    ///
+    /// The method clones the current output list, clears the original list, and executes
+    /// the output for each cloned item.
+    pub fn run(&mut self) -> &mut Self {
+        let output_list: Vec<Output<'a>> = self.output_list.clone();
+        self.clear();
+        for output in output_list {
+            output.output();
+        }
+        self
+    }
+
+    /// Queries the output item at the specified index.
+    ///
+    /// # Parameters
+    /// - `&self`: An immutable reference to the current instance of `OutputListBuilder`.
+    /// - `idx`: The index of the output item to query.
+    ///
+    /// # Returns
+    /// - `Output`: The output item at the specified index, or a default output if the index is out of bounds.
+    pub fn query_idx(&self, idx: usize) -> Output {
+        if idx >= self.output_list.len() {
+            return Output::default();
+        }
+        self.output_list[idx].clone()
+    }
+
+    /// Runs the output item at the specified index.
+    ///
+    /// # Parameters
+    /// - `&mut self`: A mutable reference to the current instance of `OutputListBuilder`.
+    /// - `idx`: The index of the output item to run.
+    ///
+    /// # Returns
+    /// - `&mut Self`: A mutable reference to the current instance, allowing for method chaining.
+    ///
+    /// If the index is out of bounds, the list remains unchanged.
+    pub fn run_idx(&mut self, idx: usize) -> &mut Self {
+        if idx >= self.output_list.len() {
+            return self;
+        }
+        let output: Output<'_> = self.query_idx(idx);
+        output.output();
+        self
+    }
+}
