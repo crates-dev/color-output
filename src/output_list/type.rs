@@ -2,7 +2,7 @@ use crate::Output;
 
 /// OutputList struct
 ///
-/// [Official Documentation](https://docs.ltpp.vip/LTPP-RUST-OUTPUT/),
+/// [Official Documentation](https://docs.ltpp.vip/COLOR-OUTPUT/),
 ///
 /// # Code Example
 ///

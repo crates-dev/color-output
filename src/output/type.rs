@@ -3,7 +3,7 @@ use crate::*;
 
 /// Output struct
 ///
-/// [Official Documentation](https://docs.ltpp.vip/LTPP-RUST-OUTPUT/),
+/// [Official Documentation](https://docs.ltpp.vip/COLOR-OUTPUT/),
 ///
 /// # Code Example
 ///
