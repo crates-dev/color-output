@@ -8,15 +8,7 @@ impl<'a> Default for Output<'a> {
             text: "",
             text_color: ColorType::default(),
             text_bg_color: ColorType::default(),
-            show_time: false,
-            time_text_color: ColorType::default(),
-            time_bg_color: ColorType::default(),
-            split: "",
-            split_color: ColorType::default(),
-            split_bg_color: ColorType::default(),
             text_blod: false,
-            time_text_blod: false,
-            split_text_blod: false,
             endl: false,
         }
     }

@@ -35,45 +35,10 @@ pub fn output(output: Output) {
     let text_color: ColorType = output.text_color.clone();
     let text_bg_color: ColorType = output.text_bg_color.clone();
     let text_blod: bool = output.text_blod.clone();
-    // Time
-    let show_time: bool = output.show_time.clone();
-    let time_color: ColorType = output.time_text_color.clone();
-    let time_bg_color: ColorType = output.time_bg_color.clone();
-    let time_text_blod: bool = output.time_text_blod.clone();
-    // Separator
-    let split: &str = output.split.clone();
-    let split_color: ColorType = output.split_color.clone();
-    let split_bg_color: ColorType = output.split_bg_color.clone();
-    let split_text_blod: bool = output.time_text_blod.clone();
     // endl
     let endl: bool = output.endl;
     let mut output: String = String::new();
-
     let mut task_list: Task<'_> = Task::new();
-
-    // Add time
-    let time_str: &String = if show_time {
-        &format!("[{}]", get_now_time_format())
-    } else {
-        &String::new()
-    };
-    task_list.add(Text {
-        text: time_str,
-        text_color: time_color,
-        text_bg_color: time_bg_color,
-        blod: time_text_blod,
-        endl: false,
-    });
-
-    // Add separator
-    task_list.add(Text {
-        text: split,
-        text_color: split_color,
-        text_bg_color: split_bg_color,
-        blod: split_text_blod,
-        endl: false,
-    });
-
     // Add text
     task_list.add(Text {
         text,
@@ -82,7 +47,6 @@ pub fn output(output: Output) {
         blod: text_blod,
         endl,
     });
-
     // run
     task_list.run_all();
 }

@@ -1,6 +1,6 @@
 [package]
 name = "color-output"
-version = "4.1.2"
+version = "5.0.1"
 edition = "2021"
 authors = ["ltpp-universe <root@ltpp.vip>"] 
 license = "MIT"
@@ -8,3 +8,9 @@ description = "An atomic output library based on Rust that supports output funct
 keywords = ["output", "console", "log", "print", "color"]
 repository = "https://github.com/ltpp-universe/color-output"
 categories = ["command-line-interface", "development-tools", "visualization"]
+exclude = [
+    "target",
+    "Cargo.lock",
+    "sh",
+    ".github"
+]

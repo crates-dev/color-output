@@ -41,12 +41,6 @@ output(Output {
     text: "test_output_struct",
     text_color: ColorType::Use(Color::Default),
     text_bg_color: ColorType::Color256(0x000000),
-    show_time: true,
-    time_text_color: ColorType::Rgb(255, 255, 255),
-    time_bg_color: ColorType::Use(Color::Yellow),
-    split: " => ",
-    split_color: ColorType::Use(Color::Cyan),
-    split_bg_color: ColorType::Use(Color::Yellow),
     endl: true,
     ..Default::default()
 });
@@ -60,12 +54,6 @@ Output {
     text: "test_output_struct_output",
     text_color: ColorType::Use(Color::Default),
     text_bg_color: ColorType::Use(Color::Blue),
-    show_time: true,
-    time_text_color: ColorType::Rgb(255, 255, 255),
-    time_bg_color: ColorType::Use(Color::Yellow),
-    split: " => ",
-    split_color: ColorType::Use(Color::Cyan),
-    split_bg_color: ColorType::Use(Color::Yellow),
     endl: true,
     ..Default::default()
 }
@@ -81,12 +69,6 @@ OutputList(vec![
         text: "test_output_list_struct_1",
         text_color: ColorType::Use(Color::Default),
         text_bg_color: ColorType::Color256(0x000000),
-        show_time: true,
-        time_text_color: ColorType::Rgb(255, 255, 255),
-        time_bg_color: ColorType::Use(Color::Yellow),
-        split: " => ",
-        split_color: ColorType::Use(Color::Cyan),
-        split_bg_color: ColorType::Use(Color::Yellow),
         endl: false,
         ..Default::default()
     },
@@ -94,12 +76,6 @@ OutputList(vec![
         text: "test_output_struct_output_2",
         text_color: ColorType::Use(Color::Default),
         text_bg_color: ColorType::Use(Color::Blue),
-        show_time: true,
-        time_text_color: ColorType::Rgb(255, 255, 255),
-        time_bg_color: ColorType::Use(Color::Yellow),
-        split: " => ",
-        split_color: ColorType::Use(Color::Cyan),
-        split_bg_color: ColorType::Use(Color::Yellow),
         endl: true,
         ..Default::default()
     },
@@ -118,11 +94,7 @@ output(
         .text("test_output_builder")
         .text_color(ColorType::Color256(0xffffff))
         .text_bg_color(ColorType::Color256(0xffffff))
-        .split_bg_color(ColorType::Color256(0xffffff))
-        .time_text_color(ColorType::Rgb(255, 200, 255))
         .text_blod(true)
-        .time_text_blod(true)
-        .show_time(true)
         .endl(true)
         .build(),
 );
@@ -136,10 +108,7 @@ OutputBuilder::new()
     .text("test_output_builder_output")
     .text_bg_color(ColorType::Color256(0xffffff))
     .text_color(ColorType::Color256(0xffffff))
-    .time_text_color(ColorType::Rgb(255, 200, 255))
     .text_blod(true)
-    .time_text_blod(true)
-    .show_time(true)
     .endl(true)
     .build()
     .output();
@@ -161,9 +130,6 @@ OutputListBuilder::new_from(vec![Output::default()])
         text: "test_new_from_output_list_builder_1",
         text_color: ColorType::Use(Color::Default),
         text_bg_color: ColorType::Color256(0x3f3f3f),
-        split: " => ",
-        split_color: ColorType::Use(Color::Cyan),
-        split_bg_color: ColorType::Use(Color::Yellow),
         endl: false,
         ..Default::default()
     })
@@ -171,9 +137,6 @@ OutputListBuilder::new_from(vec![Output::default()])
         text: "test_new_from_output_list_builder_2",
         text_color: ColorType::Use(Color::Default),
         text_bg_color: ColorType::Use(Color::Cyan),
-        split: " => ",
-        split_color: ColorType::Use(Color::Cyan),
-        split_bg_color: ColorType::Use(Color::Yellow),
         endl: true,
         ..Default::default()
     })
@@ -190,12 +153,6 @@ output_macro!(Output {
     text: "test_proc_macro",
     text_color: ColorType::default(),
     text_bg_color: ColorType::Use(Color::Yellow),
-    show_time: true,
-    time_text_color: ColorType::Use(Color::Green),
-    time_bg_color: ColorType::Color256(0xffffff),
-    split: " => ",
-    split_color: ColorType::Use(Color::Cyan),
-    split_bg_color: ColorType::Use(Color::Yellow),
     endl: true,
     ..Default::default()
 });
@@ -208,10 +165,7 @@ use color_output::*;
 output_macro!(OutputBuilder::new()
     .text("test_output_builder")
     .text_color(ColorType::Use(Color::Cyan))
-    .time_text_color(ColorType::Use(Color::Blue))
     .text_blod(true)
-    .time_text_blod(true)
-    .show_time(true)
     .endl(true)
     .build());
 ```
@@ -225,31 +179,19 @@ output_macro!(
         text: "test_proc_macro",
         text_color: ColorType::default(),
         text_bg_color: ColorType::Use(Color::Yellow),
-        show_time: true,
-        time_text_color: ColorType::Use(Color::Green),
-        time_bg_color: ColorType::Color256(0xffffff),
-        split: " => ",
-        split_color: ColorType::Use(Color::Cyan),
-        split_bg_color: ColorType::Use(Color::Yellow),
         endl: true,
         ..Default::default()
     },
     OutputBuilder::new()
         .text("test_output_builder1")
         .text_color(ColorType::Color256(0xffffff))
-        .time_text_color(ColorType::Rgb(255, 200, 255))
         .text_blod(true)
-        .time_text_blod(true)
-        .show_time(true)
         .endl(true)
         .build(),
     OutputBuilder::new()
         .text("test_output_builder2")
         .text_color(ColorType::Color256(0xffffff))
-        .time_text_color(ColorType::Rgb(255, 200, 255))
         .text_blod(true)
-        .time_text_blod(true)
-        .show_time(true)
         .endl(true)
         .build()
 );
