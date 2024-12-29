@@ -6,9 +6,9 @@ impl<'a> Default for Output<'a> {
     fn default() -> Self {
         Output {
             text: "",
-            text_color: ColorType::default(),
-            text_bg_color: ColorType::default(),
-            text_blod: false,
+            color: ColorType::default(),
+            bg_color: ColorType::default(),
+            blod: false,
             endl: false,
         }
     }

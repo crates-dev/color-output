@@ -15,8 +15,8 @@ use crate::*;
 /// use color_output::*;
 /// output(Output {
 ///     text: "test_output_struct",
-///     text_color: ColorType::Use(Color::Default),
-///     text_bg_color: ColorType::Color256(0x000000),
+///     color: ColorType::Use(Color::Default),
+///     bg_color: ColorType::Color256(0x000000),
 ///     endl: true,
 ///     ..Default::default()
 /// });
@@ -28,8 +28,8 @@ use crate::*;
 /// use color_output::*;
 /// Output {
 ///     text: "test_output_struct_output",
-///     text_color: ColorType::Use(Color::Default),
-///     text_bg_color: ColorType::Use(Color::Blue),
+///     color: ColorType::Use(Color::Default),
+///     bg_color: ColorType::Use(Color::Blue),
 ///     endl: true,
 ///     ..Default::default()
 /// }
@@ -40,11 +40,11 @@ pub struct Output<'a> {
     /// text
     pub text: &'a str,
     /// text color
-    pub text_color: ColorType,
+    pub color: ColorType,
     /// Text background color
-    pub text_bg_color: ColorType,
+    pub bg_color: ColorType,
     /// Bold text
-    pub text_blod: bool,
+    pub blod: bool,
     /// endl
     pub endl: bool,
 }

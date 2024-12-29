@@ -34,36 +34,36 @@ impl<'a> OutputBuilder<'a> {
     /// Sets the text color.
     ///
     /// # Parameters
-    /// - `text_color`: The color to be set for the text.
+    /// - `color`: The color to be set for the text.
     ///
     /// # Returns
     /// - `&mut Self`: A mutable reference to the struct for method chaining.
-    pub fn text_color(&mut self, text_color: ColorType) -> &mut Self {
-        self.output.text_color = text_color;
+    pub fn color(&mut self, color: ColorType) -> &mut Self {
+        self.output.color = color;
         self
     }
 
     /// Sets the background color for the text.
     ///
     /// # Parameters
-    /// - `text_bg_color`: The background color to be set for the text.
+    /// - `bg_color`: The background color to be set for the text.
     ///
     /// # Returns
     /// - `&mut Self`: A mutable reference to the struct for method chaining.
-    pub fn text_bg_color(&mut self, text_bg_color: ColorType) -> &mut Self {
-        self.output.text_bg_color = text_bg_color;
+    pub fn bg_color(&mut self, bg_color: ColorType) -> &mut Self {
+        self.output.bg_color = bg_color;
         self
     }
 
     /// Sets whether the text should be bold.
     ///
     /// # Parameters
-    /// - `text_blod`: A boolean indicating whether the text should be bold.
+    /// - `blod`: A boolean indicating whether the text should be bold.
     ///
     /// # Returns
     /// - `&mut Self`: A mutable reference to the struct for method chaining.
-    pub fn text_blod(&mut self, text_blod: bool) -> &mut Self {
-        self.output.text_blod = text_blod;
+    pub fn blod(&mut self, blod: bool) -> &mut Self {
+        self.output.blod = blod;
         self
     }
 

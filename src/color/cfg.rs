@@ -6,17 +6,17 @@ use color::{
 };
 
 #[test]
-fn test_text_color() {
-    let text_color: Color = Color::Default;
-    let text_color_str: &String = &text_color.to_string();
-    assert_eq!(text_color_str, DEFAULT);
+fn test_color() {
+    let color: Color = Color::Default;
+    let color_str: &String = &color.to_string();
+    assert_eq!(color_str, DEFAULT);
 }
 
 #[test]
-fn test_text_color_get_str() {
-    let text_color_str: &str = &Color::Default.get_str(DisplayType::Text);
-    let res_text_color_str: &String = &Color::Default.to_string();
-    assert_eq!(text_color_str, res_text_color_str);
+fn test_color_get_str() {
+    let color_str: &str = &Color::Default.get_str(DisplayType::Text);
+    let res_color_str: &String = &Color::Default.to_string();
+    assert_eq!(color_str, res_color_str);
 }
 
 #[test]

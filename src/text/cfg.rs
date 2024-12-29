@@ -7,8 +7,8 @@ fn test_text() {
     let text_default_str: &String = &text_default.get_display_str_cow().into_owned();
     let text: Text<'_> = Text {
         text: "",
-        text_color: ColorType::default(),
-        text_bg_color: ColorType::default(),
+        color: ColorType::default(),
+        bg_color: ColorType::default(),
         blod: false,
         endl: false,
     };

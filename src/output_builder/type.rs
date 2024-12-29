@@ -14,9 +14,9 @@ use crate::{output, ColorType, Output};
 /// output(
 ///     OutputBuilder::new_from(Output::default())
 ///         .text("test_output_builder")
-///         .text_color(ColorType::Color256(0xffffff))
-///         .text_bg_color(ColorType::Color256(0xffffff))
-///         .text_blod(true)
+///         .color(ColorType::Color256(0xffffff))
+///         .bg_color(ColorType::Color256(0xffffff))
+///         .blod(true)
 ///         .endl(true)
 ///         .build(),
 /// );
@@ -28,9 +28,9 @@ use crate::{output, ColorType, Output};
 /// use color_output::*;
 /// OutputBuilder::new()
 ///     .text("test_output_builder_output")
-///     .text_bg_color(ColorType::Color256(0xffffff))
-///     .text_color(ColorType::Color256(0xffffff))
-///     .text_blod(true)
+///     .bg_color(ColorType::Color256(0xffffff))
+///     .color(ColorType::Color256(0xffffff))
+///     .blod(true)
 ///     .endl(true)
 ///     .build()
 ///     .output();

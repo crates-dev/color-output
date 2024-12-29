@@ -12,9 +12,9 @@ pub(crate) struct Text<'a> {
     /// The actual text content.
     pub(crate) text: &'a str,
     /// The color of the text.
-    pub(crate) text_color: ColorType,
+    pub(crate) color: ColorType,
     /// The background color of the text.
-    pub(crate) text_bg_color: ColorType,
+    pub(crate) bg_color: ColorType,
     /// Whether the text should be bold.
     pub(crate) blod: bool,
     /// endl
@@ -25,8 +25,8 @@ impl<'a> Default for Text<'a> {
     fn default() -> Self {
         Text {
             text: "",
-            text_color: ColorType::default(),
-            text_bg_color: ColorType::default(),
+            color: ColorType::default(),
+            bg_color: ColorType::default(),
             blod: false,
             endl: false,
         }
@@ -56,15 +56,12 @@ impl<'a> Text<'a> {
     pub(crate) fn get_display_str_cow(&self) -> Cow<'a, str> {
         let text: &str = self.text;
         let blod: bool = self.blod.clone();
-        let text_color: &String = &self.text_color.to_string();
-        let text_bg_color: &String = &self.text_bg_color.get_str(DisplayType::Background);
+        let color: &String = &self.color.to_string();
+        let bg_color: &String = &self.bg_color.get_str(DisplayType::Background);
         let mut colored_text: String = if blod {
-            format!(
-                "{}{}{}{}{}{}",
-                text_bg_color, text_color, BLOD, text, UNBLOD, RESET
-            )
+            format!("{}{}{}{}{}{}", bg_color, color, BLOD, text, UNBLOD, RESET)
         } else {
-            format!("{}{}{}{}", text_bg_color, text_color, text, RESET)
+            format!("{}{}{}{}", bg_color, color, text, RESET)
         };
         if self.endl {
             colored_text.push_str("\n");

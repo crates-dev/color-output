@@ -32,9 +32,9 @@ use std::borrow::Cow;
 pub fn output(output: Output) {
     // Text
     let text: &str = output.text;
-    let text_color: ColorType = output.text_color.clone();
-    let text_bg_color: ColorType = output.text_bg_color.clone();
-    let text_blod: bool = output.text_blod.clone();
+    let color: ColorType = output.color.clone();
+    let bg_color: ColorType = output.bg_color.clone();
+    let blod: bool = output.blod.clone();
     // endl
     let endl: bool = output.endl;
     let mut output: String = String::new();
@@ -42,9 +42,9 @@ pub fn output(output: Output) {
     // Add text
     task_list.add(Text {
         text,
-        text_color,
-        text_bg_color,
-        blod: text_blod,
+        color,
+        bg_color,
+        blod: blod,
         endl,
     });
     // run

@@ -39,8 +39,8 @@ cargo add ltpp-output
 use color_output::*;
 output(Output {
     text: "test_output_struct",
-    text_color: ColorType::Use(Color::Default),
-    text_bg_color: ColorType::Color256(0x000000),
+    color: ColorType::Use(Color::Default),
+    bg_color: ColorType::Color256(0x000000),
     endl: true,
     ..Default::default()
 });
@@ -52,8 +52,8 @@ output(Output {
 use color_output::*;
 Output {
     text: "test_output_struct_output",
-    text_color: ColorType::Use(Color::Default),
-    text_bg_color: ColorType::Use(Color::Blue),
+    color: ColorType::Use(Color::Default),
+    bg_color: ColorType::Use(Color::Blue),
     endl: true,
     ..Default::default()
 }
@@ -67,15 +67,15 @@ use color_output::*;
 OutputList(vec![
     Output {
         text: "test_output_list_struct_1",
-        text_color: ColorType::Use(Color::Default),
-        text_bg_color: ColorType::Color256(0x000000),
+        color: ColorType::Use(Color::Default),
+        bg_color: ColorType::Color256(0x000000),
         endl: false,
         ..Default::default()
     },
     Output {
         text: "test_output_struct_output_2",
-        text_color: ColorType::Use(Color::Default),
-        text_bg_color: ColorType::Use(Color::Blue),
+        color: ColorType::Use(Color::Default),
+        bg_color: ColorType::Use(Color::Blue),
         endl: true,
         ..Default::default()
     },
@@ -92,9 +92,9 @@ use color_output::*;
 output(
     OutputBuilder::new_from(Output::default())
         .text("test_output_builder")
-        .text_color(ColorType::Color256(0xffffff))
-        .text_bg_color(ColorType::Color256(0xffffff))
-        .text_blod(true)
+        .color(ColorType::Color256(0xffffff))
+        .bg_color(ColorType::Color256(0xffffff))
+        .blod(true)
         .endl(true)
         .build(),
 );
@@ -106,9 +106,9 @@ output(
 use color_output::*;
 OutputBuilder::new()
     .text("test_output_builder_output")
-    .text_bg_color(ColorType::Color256(0xffffff))
-    .text_color(ColorType::Color256(0xffffff))
-    .text_blod(true)
+    .bg_color(ColorType::Color256(0xffffff))
+    .color(ColorType::Color256(0xffffff))
+    .blod(true)
     .endl(true)
     .build()
     .output();
@@ -122,21 +122,21 @@ OutputListBuilder::new_from(vec![Output::default()])
     .add(
         OutputBuilder::new()
             .text("text")
-            .text_bg_color(ColorType::Use(Color::Blue))
+            .bg_color(ColorType::Use(Color::Blue))
             .endl(false)
             .build(),
     )
     .add(Output {
         text: "test_new_from_output_list_builder_1",
-        text_color: ColorType::Use(Color::Default),
-        text_bg_color: ColorType::Color256(0x3f3f3f),
+        color: ColorType::Use(Color::Default),
+        bg_color: ColorType::Color256(0x3f3f3f),
         endl: false,
         ..Default::default()
     })
     .add(Output {
         text: "test_new_from_output_list_builder_2",
-        text_color: ColorType::Use(Color::Default),
-        text_bg_color: ColorType::Use(Color::Cyan),
+        color: ColorType::Use(Color::Default),
+        bg_color: ColorType::Use(Color::Cyan),
         endl: true,
         ..Default::default()
     })
@@ -151,8 +151,8 @@ OutputListBuilder::new_from(vec![Output::default()])
 use color_output::*;
 output_macro!(Output {
     text: "test_proc_macro",
-    text_color: ColorType::default(),
-    text_bg_color: ColorType::Use(Color::Yellow),
+    color: ColorType::default(),
+    bg_color: ColorType::Use(Color::Yellow),
     endl: true,
     ..Default::default()
 });
@@ -164,8 +164,8 @@ output_macro!(Output {
 use color_output::*;
 output_macro!(OutputBuilder::new()
     .text("test_output_builder")
-    .text_color(ColorType::Use(Color::Cyan))
-    .text_blod(true)
+    .color(ColorType::Use(Color::Cyan))
+    .blod(true)
     .endl(true)
     .build());
 ```
@@ -177,21 +177,21 @@ use color_output::*;
 output_macro!(
     Output {
         text: "test_proc_macro",
-        text_color: ColorType::default(),
-        text_bg_color: ColorType::Use(Color::Yellow),
+        color: ColorType::default(),
+        bg_color: ColorType::Use(Color::Yellow),
         endl: true,
         ..Default::default()
     },
     OutputBuilder::new()
         .text("test_output_builder1")
-        .text_color(ColorType::Color256(0xffffff))
-        .text_blod(true)
+        .color(ColorType::Color256(0xffffff))
+        .blod(true)
         .endl(true)
         .build(),
     OutputBuilder::new()
         .text("test_output_builder2")
-        .text_color(ColorType::Color256(0xffffff))
-        .text_blod(true)
+        .color(ColorType::Color256(0xffffff))
+        .blod(true)
         .endl(true)
         .build()
 );
