@@ -1,4 +1,3 @@
-use super::output::output;
 use crate::*;
 
 /// Output struct

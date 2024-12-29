@@ -1,9 +1,6 @@
+use crate::*;
 use color::blod::{BLOD, UNBLOD};
 use color::color::RESET;
-
-use crate::color::color::DEFAULT;
-use crate::DisplayType;
-use crate::*;
 use std::borrow::Cow;
 
 /// Represents a text with formatting options.

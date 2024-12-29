@@ -7,7 +7,7 @@ mod output_list;
 mod output_list_builder;
 mod task;
 mod text;
-mod time;
+
 pub use color::r#type::*;
 pub use output::{output::*, r#type::Output};
 pub use output_builder::r#type::OutputBuilder;

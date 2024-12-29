@@ -1,6 +1,4 @@
-use crate::{ColorType, Output};
-
-use crate::output;
+use crate::*;
 
 impl<'a> Default for Output<'a> {
     fn default() -> Self {

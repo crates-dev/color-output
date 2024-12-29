@@ -1,9 +1,6 @@
-use task::r#type::Task;
-
-use crate::text::r#type::Text;
-use crate::time::time::get_now_time_format;
 use crate::*;
-use std::borrow::Cow;
+use task::r#type::Task;
+use text::r#type::Text;
 
 /// Output
 ///
@@ -37,14 +34,13 @@ pub fn output(output: Output) {
     let blod: bool = output.blod.clone();
     // endl
     let endl: bool = output.endl;
-    let mut output: String = String::new();
     let mut task_list: Task<'_> = Task::new();
     // Add text
     task_list.add(Text {
         text,
         color,
         bg_color,
-        blod: blod,
+        blod,
         endl,
     });
     // run

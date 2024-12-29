@@ -1,6 +1,6 @@
-use crate::{output, Output};
-
 use super::r#type::OutputListBuilder;
+use crate::output_list::output::output_list;
+use crate::*;
 
 impl<'a> OutputListBuilder<'a> {
     /// Creates a new empty `OutputListBuilder`.
@@ -74,11 +74,9 @@ impl<'a> OutputListBuilder<'a> {
     /// The method clones the current output list, clears the original list, and executes
     /// the output for each cloned item.
     pub fn run(&mut self) -> &mut Self {
-        let output_list: Vec<Output<'a>> = self.output_list.clone();
+        let output_list_clone: Vec<Output<'a>> = self.output_list.clone();
         self.clear();
-        for output in output_list {
-            output.output();
-        }
+        output_list(&output_list_clone.to_vec());
         self
     }
 

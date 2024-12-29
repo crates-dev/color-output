@@ -1,10 +1,8 @@
+use super::output::output_list;
+use crate::*;
 use std::ops::Deref;
 use std::slice::Iter;
 use std::vec;
-
-use crate::{ColorType, Output, OutputList};
-
-use crate::output;
 
 impl<'a> Default for OutputList<'a> {
     /// Provides a default implementation for `OutputList`.
@@ -57,9 +55,7 @@ impl<'a> OutputList<'a> {
     /// # Returns
     /// - `()` : Nothing is returned.
     pub fn output(self) {
-        let output_list: OutputList<'a> = self.clone();
-        for output in &output_list {
-            output.clone().output();
-        }
+        let output_list_clone: OutputList<'a> = self.clone();
+        output_list(&output_list_clone.to_vec());
     }
 }

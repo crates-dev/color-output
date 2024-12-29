@@ -1,7 +1,6 @@
-use crate::*;
-
 #[test]
 fn test_proc_macro_output_struct() {
+    use crate::*;
     output_macro!(Output {
         text: "test_proc_macro",
         color: ColorType::default(),
@@ -13,6 +12,7 @@ fn test_proc_macro_output_struct() {
 
 #[test]
 fn test_proc_mcacro_output_builder() {
+    use crate::*;
     output_macro!(OutputBuilder::new()
         .text("test_output_builder")
         .color(ColorType::Use(Color::Cyan))
@@ -23,6 +23,7 @@ fn test_proc_mcacro_output_builder() {
 
 #[test]
 fn test_proc_macro_multiple() {
+    use crate::*;
     output_macro!(
         Output {
             text: "test_proc_macro",

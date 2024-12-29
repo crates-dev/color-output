@@ -1,16 +1,9 @@
-use crate::color::{
-    blod::{BLOD, UNBLOD},
-    color::{
-        BG_BLACK, BG_BLUE, BG_CYAN, BG_GREEN, BG_MAGENTA, BG_RED, BG_WHITE, BG_YELLOW, BLACK, BLUE,
-        CYAN, DEFAULT, GREEN, MAGENTA, RED, WHITE, YELLOW,
-    },
+use super::utils::{color256_bg_color, color256_fg_color, rgb_bg_color, rgb_fg_color};
+use crate::color::color::{
+    BG_BLACK, BG_BLUE, BG_CYAN, BG_GREEN, BG_MAGENTA, BG_RED, BG_WHITE, BG_YELLOW, BLACK, BLUE,
+    CYAN, DEFAULT, GREEN, MAGENTA, RED, WHITE, YELLOW,
 };
 use std::fmt::{self, Display};
-
-use super::{
-    color::RESET,
-    utils::{color256_bg_color, color256_fg_color, rgb_bg_color, rgb_fg_color},
-};
 
 /// ColorType
 #[derive(Debug, Clone, PartialEq)]

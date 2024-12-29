@@ -1,4 +1,5 @@
-use crate::{output, ColorType, Output};
+use crate::*;
+
 /// OutputBuilder struct
 ///
 /// [Official Documentation](https://docs.ltpp.vip/COLOR-OUTPUT/),
