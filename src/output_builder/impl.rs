@@ -1,5 +1,7 @@
 use crate::{output, ColorType, Output, OutputBuilder};
 
+use super::r#trait::OutputTextTrait;
+
 impl<'a> OutputBuilder<'a> {
     /// Creates the struct
     ///
@@ -26,8 +28,11 @@ impl<'a> OutputBuilder<'a> {
     ///
     /// # Returns
     /// - `&mut Self`: A mutable reference to the struct for method chaining.
-    pub fn text(&mut self, text: &'a str) -> &mut Self {
-        self.output.text = text;
+    pub fn text<T>(&mut self, text: T) -> &mut Self
+    where
+        T: OutputTextTrait<'a>,
+    {
+        self.output.text = text.into();
         self
     }
 
