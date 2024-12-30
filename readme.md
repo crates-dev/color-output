@@ -1,4 +1,4 @@
-# COLOR-OUTPUT
+# color-output
 
 [![](https://img.shields.io/crates/v/color-output.svg)](https://crates.io/crates/color-output)
 [![](https://docs.rs/color-output/badge.svg)](https://docs.rs/color-output)
@@ -23,10 +23,10 @@
 
 ## Installation
 
-To install `ltpp-output` run cmd:
+To install `color-output` run cmd:
 
 ```shell
-cargo add ltpp-output
+cargo add color-output
 ```
 
 ## Code Examples
