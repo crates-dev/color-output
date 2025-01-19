@@ -1,6 +1,7 @@
 use crate::*;
 
 impl<'a> Default for Output<'a> {
+    #[inline]
     fn default() -> Self {
         Output {
             text: "",
@@ -17,6 +18,7 @@ impl<'a> Output<'a> {
     ///
     /// # Returns
     /// - `()` : Nothing is returned.
+    #[inline]
     pub fn output(self) {
         output(self);
     }

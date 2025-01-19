@@ -26,6 +26,7 @@ use text::r#type::Text;
 /// ```rust
 /// use color_output::*;
 /// ```
+#[inline]
 pub fn output(output: Output) {
     // Text
     let text: &str = output.text;
@@ -34,7 +35,7 @@ pub fn output(output: Output) {
     let blod: bool = output.blod.clone();
     // endl
     let endl: bool = output.endl;
-    let mut task_list: Task<'_> = Task::new();
+    let mut task_list: Task<'_> = Task::default();
     // Add text
     task_list.add(Text {
         text,

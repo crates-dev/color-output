@@ -5,6 +5,7 @@
 ///
 /// # Returns
 /// - `String`: Returns a string containing the ANSI escape sequence for the foreground color.
+#[inline]
 pub fn color256_fg_color(code: u32) -> String {
     format!("\x1b[38;5;{}m", code)
 }
@@ -16,6 +17,7 @@ pub fn color256_fg_color(code: u32) -> String {
 ///
 /// # Returns
 /// - `String`: Returns a string containing the ANSI escape sequence for the background color.
+#[inline]
 pub fn color256_bg_color(code: u32) -> String {
     // Check if the color range is between 0x000000 and 0xFFFFFF
     if code > 0xFFFFFF {
@@ -44,6 +46,7 @@ pub fn color256_bg_color(code: u32) -> String {
 ///
 /// # Returns
 /// - `String`: Returns a string containing the ANSI escape sequence for the true color foreground color.
+#[inline]
 pub fn rgb_fg_color(r: u8, g: u8, b: u8) -> String {
     format!("\x1b[38;2;{};{};{}m", r, g, b)
 }
@@ -57,6 +60,7 @@ pub fn rgb_fg_color(r: u8, g: u8, b: u8) -> String {
 ///
 /// # Returns
 /// - `String`: Returns a string containing the ANSI escape sequence for the true color background color.
+#[inline]
 pub fn rgb_bg_color(r: u8, g: u8, b: u8) -> String {
     format!("\x1b[48;2;{};{};{}m", r, g, b)
 }

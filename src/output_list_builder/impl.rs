@@ -1,4 +1,3 @@
-use super::r#type::OutputListBuilder;
 use crate::output_list::output::output_list;
 use crate::*;
 
@@ -7,6 +6,7 @@ impl<'a> OutputListBuilder<'a> {
     ///
     /// # Returns
     /// - `Self`: A new instance of `OutputListBuilder` with an empty output list.
+    #[inline]
     pub fn new() -> Self {
         Self {
             output_list: vec![],
@@ -20,6 +20,7 @@ impl<'a> OutputListBuilder<'a> {
     ///
     /// # Returns
     /// - `Self`: A new instance of `OutputListBuilder` containing the specified outputs.
+    #[inline]
     pub fn new_from(output_list: Vec<Output<'a>>) -> Self {
         Self { output_list }
     }
@@ -32,6 +33,7 @@ impl<'a> OutputListBuilder<'a> {
     ///
     /// # Returns
     /// - `&mut Self`: A mutable reference to the current instance, allowing for method chaining.
+    #[inline]
     pub fn add(&mut self, output: Output<'a>) -> &mut Self {
         self.output_list.push(output);
         self
@@ -47,6 +49,7 @@ impl<'a> OutputListBuilder<'a> {
     /// - `&mut Self`: A mutable reference to the current instance, allowing for method chaining.
     ///
     /// If the index is out of bounds, the list remains unchanged.
+    #[inline]
     pub fn remove(&mut self, idx: usize) -> &mut Self {
         if idx >= self.output_list.len() {
             return self;
@@ -59,6 +62,7 @@ impl<'a> OutputListBuilder<'a> {
     ///
     /// # Parameters
     /// - `&mut self`: A mutable reference to the current instance of `OutputListBuilder`.
+    #[inline]
     pub fn clear(&mut self) {
         self.output_list.clear();
     }
@@ -73,6 +77,7 @@ impl<'a> OutputListBuilder<'a> {
     ///
     /// The method clones the current output list, clears the original list, and executes
     /// the output for each cloned item.
+    #[inline]
     pub fn run(&mut self) -> &mut Self {
         let output_list_clone: Vec<Output<'a>> = self.output_list.clone();
         self.clear();
@@ -88,6 +93,7 @@ impl<'a> OutputListBuilder<'a> {
     ///
     /// # Returns
     /// - `Output`: The output item at the specified index, or a default output if the index is out of bounds.
+    #[inline]
     pub fn query_idx(&self, idx: usize) -> Output {
         if idx >= self.output_list.len() {
             return Output::default();
@@ -105,6 +111,7 @@ impl<'a> OutputListBuilder<'a> {
     /// - `&mut Self`: A mutable reference to the current instance, allowing for method chaining.
     ///
     /// If the index is out of bounds, the list remains unchanged.
+    #[inline]
     pub fn run_idx(&mut self, idx: usize) -> &mut Self {
         if idx >= self.output_list.len() {
             return self;

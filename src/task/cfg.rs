@@ -4,7 +4,7 @@ fn test_task() {
     use crate::*;
     use task::r#type::Task;
     use text::r#type::Text;
-    let mut task: Task<'_> = Task::new();
+    let mut task: Task<'_> = Task::default();
     task.add(Text::default()).add(Text {
         text: "1",
         ..Text::default()
