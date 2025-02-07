@@ -10,8 +10,6 @@ if [ -z "$update_message" ]; then
     exit 1
 fi
 git commit -m "feat:$update_message";
-git push github master;
-echo -e "\e[32mgithub push finish\e[0m";
 git push gitee master;
 echo -e "\e[32mgitee push finish\e[0m";
 git push origin master;
