@@ -12,8 +12,8 @@ fi
 git commit -m "feat:$update_message";
 git push github master;
 echo -e "\e[32mgithub push finish\e[0m";
-git push jihulab master;
-echo -e "\e[32mjihulab push finish\e[0m";
+git push gitee master;
+echo -e "\e[32mgitee push finish\e[0m";
 git push origin master;
 echo -e "\e[32morigin push finish\e[0m";
 echo "Press Enter to continue...";
