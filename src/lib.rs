@@ -9,6 +9,7 @@ mod task;
 mod text;
 
 pub use color::r#type::*;
+pub use hyperlane_time::*;
 pub use output::{output::*, r#type::Output};
 pub use output_builder::r#type::OutputBuilder;
 pub use output_list::r#type::OutputList;

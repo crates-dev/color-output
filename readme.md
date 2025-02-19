@@ -201,6 +201,60 @@ output_macro!(
 );
 ```
 
+#### print_success!
+
+> Outputs success information without a new line.
+
+```rust
+use color_output::*;
+print_success!("1234", "5678");
+```
+
+#### print_warning!
+
+> Outputs warning information without a new line.
+
+```rust
+use color_output::*;
+print_warning!("1234", "5678");
+```
+
+#### print_error!
+
+> Outputs error information without a new line.
+
+```rust
+use color_output::*;
+print_error!("1234", "5678");
+```
+
+#### println_success!
+
+> Outputs success information with a new line.
+
+```rust
+use color_output::*;
+println_success!("1234", "5678");
+```
+
+#### println_warning!
+
+> Outputs warning information with a new line.
+
+```rust
+use color_output::*;
+println_warning!("1234", "5678");
+```
+
+#### println_error!
+
+> Outputs error information with a new line.
+
+```rust
+use color_output::*;
+println_error!("1234", "5678");
+```
+
 ### Color Usage
 
 - `ColorType::Use`: Use built-in colors.

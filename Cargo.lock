@@ -4,4 +4,13 @@ version = 4
 
 [[package]]
 name = "color-output"
-version = "6.1.8"
+version = "6.4.0"
+dependencies = [
+ "hyperlane-time",
+]
+
+[[package]]
+name = "hyperlane-time"
+version = "0.0.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "59ba1b8e29b16c629f22fc5e4c0d42ee54de9b363b3ebea5c716fdcf6d7c2c08"

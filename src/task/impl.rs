@@ -1,6 +1,6 @@
 use super::r#type::*;
 use crate::*;
-use std::borrow::Cow;
+use std::{borrow::Cow, io::Write};
 use text::r#type::*;
 
 impl<'a> Default for Task<'a> {
@@ -149,6 +149,7 @@ impl<'a> Task<'a> {
             output_str.push_str(colored_time);
         }
         print!("{}", output_str);
+        std::io::stdout().flush().unwrap();
         self
     }
 }

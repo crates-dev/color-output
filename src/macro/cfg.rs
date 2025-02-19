@@ -1,3 +1,7 @@
+use crate::{
+    print_error, print_success, print_warning, println_error, println_success, println_warning,
+};
+
 #[test]
 fn test_proc_macro_output_struct() {
     use crate::*;
@@ -45,4 +49,14 @@ fn test_proc_macro_multiple() {
             .endl(true)
             .build()
     );
+}
+
+#[test]
+fn test_print_type() {
+    print_success!("1");
+    print_warning!("2");
+    print_error!("3");
+    println_success!("1");
+    println_warning!("2");
+    println_error!("3");
 }
