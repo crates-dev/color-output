@@ -3,6 +3,7 @@
 # color-output
 
 [![](https://img.shields.io/crates/v/color-output.svg)](https://crates.io/crates/color-output)
+[![](https://img.shields.io/crates/d/color-output.svg)](https://img.shields.io/crates/d/color-output.svg)
 [![](https://docs.rs/color-output/badge.svg)](https://docs.rs/color-output)
 [![](https://github.com/ltpp-universe/color-output/workflows/Rust/badge.svg)](https://github.com/ltpp-universe/color-output/actions?query=workflow:Rust)
 [![](https://img.shields.io/crates/l/color-output.svg)](./LICENSE)

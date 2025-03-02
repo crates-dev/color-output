@@ -1,6 +1,6 @@
 [package]
 name = "color-output"
-version = "6.4.0"
+version = "6.4.1"
 edition = "2021"
 authors = ["ltpp-universe <root@ltpp.vip>"] 
 license = "MIT"
