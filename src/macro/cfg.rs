@@ -17,12 +17,14 @@ fn test_proc_macro_output_struct() {
 #[test]
 fn test_proc_mcacro_output_builder() {
     use crate::*;
-    output_macro!(OutputBuilder::new()
-        .text("test_output_builder")
-        .color(ColorType::Use(Color::Cyan))
-        .blod(true)
-        .endl(true)
-        .build());
+    output_macro!(
+        OutputBuilder::new()
+            .text("test_output_builder")
+            .color(ColorType::Use(Color::Cyan))
+            .blod(true)
+            .endl(true)
+            .build()
+    );
 }
 
 #[test]

@@ -1,7 +1,7 @@
 [package]
 name = "color-output"
-version = "6.4.4"
-edition = "2021"
+version = "6.5.0"
+edition = "2024"
 authors = ["ltpp-universe <root@ltpp.vip>"] 
 license = "MIT"
 description = "An atomic output library based on Rust that supports output functionalities through functions, builders, and other methods. It allows customization of text and background colors."
@@ -16,7 +16,7 @@ exclude = [
 ]
 
 [dependencies]
-hyperlane-time = "0.1.0"
+hyperlane-time = "0.2.0"
 
 [profile.dev]
 incremental = false
