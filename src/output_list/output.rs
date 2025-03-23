@@ -26,7 +26,6 @@ use task::r#type::Task;
 /// ```rust
 /// use color_output::*;
 /// ```
-#[inline]
 pub fn output_list(output_list: &Vec<Output>) {
     let mut task_list: Task<'_> = Task::default();
     for output in output_list {

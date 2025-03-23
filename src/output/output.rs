@@ -26,7 +26,6 @@ use text::r#type::Text;
 /// ```rust
 /// use color_output::*;
 /// ```
-#[inline]
 pub fn output(output: Output) {
     // Text
     let text: &str = output.text;

@@ -4,7 +4,6 @@ use std::{borrow::Cow, io::Write};
 use text::r#type::*;
 
 impl<'a> Default for Task<'a> {
-    #[inline]
     fn default() -> Self {
         Self { text_list: vec![] }
     }
@@ -21,7 +20,6 @@ impl<'a> Task<'a> {
     /// - `&mut Self`: A mutable reference to the current task instance, allowing method chaining.
     ///
     /// If the `new_text` is empty, no text is added and the method returns the current task instance unchanged.
-    #[inline]
     pub(crate) fn add(&mut self, new_text: Text<'a>) -> &mut Self {
         if new_text.text.is_empty() {
             return self;
@@ -38,7 +36,6 @@ impl<'a> Task<'a> {
     ///
     /// # Returns
     /// - `TaskResult`: The result of the removal operation
-    #[inline]
     pub(crate) fn remove(&mut self, idx: usize) -> TaskResult {
         if idx >= self.text_list.len() {
             return TaskResult::Fail;
@@ -55,7 +52,6 @@ impl<'a> Task<'a> {
     ///
     /// # Returns
     /// - `TaskResult`: The result of the query
-    #[inline]
     pub(crate) fn query_idx(&mut self, idx: usize) -> TaskResult {
         if idx >= self.text_list.len() {
             return TaskResult::Fail;
@@ -79,7 +75,6 @@ impl<'a> Task<'a> {
     ///
     /// # Returns
     /// - `TaskResult`: The result of the query in string format
-    #[inline]
     pub(crate) fn query_idx_format_str(&mut self, idx: usize) -> TaskResult {
         if idx >= self.text_list.len() {
             return TaskResult::Fail;
@@ -98,7 +93,6 @@ impl<'a> Task<'a> {
     ///
     /// # Returns
     /// - `TaskResult`: The result of the task run
-    #[inline]
     pub(crate) fn run_idx(&mut self, idx: usize) -> TaskResult {
         let result: TaskResult<'_> = self.query_idx(idx);
         if result == TaskResult::Fail {
@@ -123,7 +117,6 @@ impl<'a> Task<'a> {
     /// - `&mut Self`: A mutable reference to the current task instance, allowing method chaining.
     ///
     /// This method removes all tasks from the task list.
-    #[inline]
     pub(crate) fn clear(&mut self) -> &mut Self {
         self.text_list.clear();
         self
@@ -139,7 +132,6 @@ impl<'a> Task<'a> {
     ///
     /// The method clones the task list, clears the original list, and then processes each task by
     /// converting its output to a string and printing the result.
-    #[inline]
     pub(crate) fn run_all(&mut self) -> &mut Self {
         let copy_task_list: Vec<Text<'a>> = self.text_list.clone();
         self.clear();

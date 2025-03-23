@@ -4,7 +4,6 @@ use crate::*;
 use std::borrow::Cow;
 
 impl<'a> Default for Text<'a> {
-    #[inline]
     fn default() -> Self {
         Text {
             text: "",
@@ -24,7 +23,6 @@ impl<'a> Text<'a> {
     ///
     /// # Returns
     /// - `Text`: The text structure
-    #[inline]
     pub(crate) fn new_from(text: &Text<'a>) -> Self {
         Self { ..text.clone() }
     }
@@ -37,7 +35,6 @@ impl<'a> Text<'a> {
     ///
     /// # Returns
     /// - `Cow<'a, str>`: An owned copy of the formatted string.
-    #[inline]
     pub(crate) fn get_display_str_cow(&self) -> Cow<'a, str> {
         let text: &str = self.text;
         let blod: bool = self.blod.clone();

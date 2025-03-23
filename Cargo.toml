@@ -1,6 +1,6 @@
 [package]
 name = "color-output"
-version = "6.5.0"
+version = "6.5.1"
 edition = "2024"
 authors = ["ltpp-universe <root@ltpp.vip>"] 
 license = "MIT"
@@ -16,7 +16,7 @@ exclude = [
 ]
 
 [dependencies]
-hyperlane-time = "0.2.0"
+hyperlane-time = "0.2.1"
 
 [profile.dev]
 incremental = false

@@ -9,7 +9,6 @@ impl<'a> Default for OutputList<'a> {
     ///
     /// # Returns
     /// - `OutputList<'a>`: Returns an `OutputList` containing a default `Output`.
-    #[inline]
     fn default() -> Self {
         OutputList(vec![Output::<'a>::default()])
     }
@@ -22,7 +21,6 @@ impl<'a> Deref for OutputList<'a> {
     ///
     /// # Returns
     /// - `&Vec<Output<'a>>`: A reference to the internal vector of outputs.
-    #[inline]
     fn deref(&self) -> &Self::Target {
         &self.0
     }
@@ -36,7 +34,6 @@ impl<'a> IntoIterator for &'a OutputList<'a> {
     ///
     /// # Returns
     /// - `Iter<'a, Output<'a>>`: An iterator over references to the `Output` elements.
-    #[inline]
     fn into_iter(self) -> Self::IntoIter {
         self.0.iter()
     }
@@ -47,7 +44,6 @@ impl<'a> OutputList<'a> {
     ///
     /// # Returns
     /// - `Iter<'_, Output<'a>>`: An iterator over references to `Output` elements.
-    #[inline]
     pub fn iter(&self) -> std::slice::Iter<'_, Output<'a>> {
         self.0.iter()
     }
@@ -58,7 +54,6 @@ impl<'a> OutputList<'a> {
     ///
     /// # Returns
     /// - `()` : Nothing is returned.
-    #[inline]
     pub fn output(self) {
         let output_list_clone: OutputList<'a> = self.clone();
         output_list(&output_list_clone.to_vec());
