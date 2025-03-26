@@ -57,10 +57,28 @@ fn test_proc_macro_multiple() {
 fn test_print_type() {
     let msg: &str = "1\n2\n3\r\n4";
     print_success!(msg);
+    println!("\n==========");
     print_warning!(msg);
+    println!("\n==========");
     print_error!(msg);
-    println!();
+    println!("\n==========");
     println_success!(msg);
+    println!("==========");
     println_warning!(msg);
+    println!("==========");
     println_error!(msg);
+    println!("==========");
+    let msg: &str = "1234";
+    print_success!(msg, msg);
+    println!("\n==========");
+    print_warning!(msg, msg);
+    println!("\n==========");
+    print_error!(msg, msg);
+    println!("\n==========");
+    println_success!(msg, msg);
+    println!("==========");
+    println_warning!(msg, msg);
+    println!("==========");
+    println_error!(msg, msg);
+    println!("==========");
 }

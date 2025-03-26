@@ -83,28 +83,26 @@ macro_rules! print_message_common_handler {
         let mut text_output_builder: OutputBuilder<'_> = OutputBuilder::new();
         let mut text_endl_output_builder: OutputBuilder<'_> = OutputBuilder::new();
         let text_endl_output: Output<'_> = text_endl_output_builder.text("\n").endl(false).build();
-        let mut has_add_time: bool = false;
+        let mut text: String = String::new();
         $(
-            let text = $data.to_string();
-            for line in text.lines() {
-                let mut output_list_builder = OutputListBuilder::new();
-                if $endl || !has_add_time {
-                    has_add_time = true;
-                    output_list_builder.add(time_output.clone());
-                }
-                let text_output: Output<'_> = text_output_builder
-                    .text(&line)
-                    .blod(true)
-                    .color($color)
-                    .endl(false)
-                    .build();
-                output_list_builder.add(text_output);
-                if $endl {
-                    output_list_builder.add(text_endl_output.clone());
-                }
-                output_list_builder.run();
-            }
+            text.push_str(&$data.to_string());
         )*
+        let mut lines_iter = text.lines().peekable();
+        while let Some(line) = lines_iter.next() {
+            let mut output_list_builder = OutputListBuilder::new();
+            output_list_builder.add(time_output.clone());
+            let text_output: Output<'_> = text_output_builder
+                .text(&line)
+                .blod(true)
+                .color($color)
+                .endl(false)
+                .build();
+            output_list_builder.add(text_output);
+            if lines_iter.peek().is_some() || $endl {
+                output_list_builder.add(text_endl_output.clone());
+            }
+            output_list_builder.run();
+        }
     }};
 }
 
