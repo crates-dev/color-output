@@ -72,7 +72,7 @@ macro_rules! print_message_common_handler {
     ($level:expr, $color:expr, $bg_color:expr, $endl:expr, $($data:expr),*) => {{
         use crate::*;
         use std::fmt::*;
-        let binding: String = format!("[{} => {}]", current_time(), $level);
+        let binding: String = format!("[{} => {}]", time(), $level);
         let mut time_output_builder: OutputBuilder<'_> = OutputBuilder::new();
         let time_output: Output<'_> = time_output_builder
             .text(&binding)
