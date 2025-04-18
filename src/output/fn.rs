@@ -1,6 +1,6 @@
 use crate::*;
-use task::r#type::Task;
-use text::r#type::Text;
+use task::r#struct::Task;
+use text::r#struct::Text;
 
 /// Output
 ///

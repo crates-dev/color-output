@@ -1,5 +1,5 @@
-use super::r#type::*;
-use crate::color::{blod::*, color::*};
+use super::r#struct::*;
+use crate::color::{blod::*, r#const::*};
 use crate::*;
 use std::borrow::Cow;
 

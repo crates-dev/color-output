@@ -1,4 +1,4 @@
 pub(crate) mod cfg;
+pub(crate) mod r#fn;
 pub(crate) mod r#impl;
-pub(crate) mod output;
-pub(crate) mod r#type;
+pub(crate) mod r#struct;

@@ -10,8 +10,8 @@ mod text;
 
 pub use color::r#type::*;
 pub use hyperlane_time::*;
-pub use r#macro::proc_macro::*;
-pub use output::{output::*, r#type::Output};
-pub use output_builder::r#type::OutputBuilder;
-pub use output_list::r#type::OutputList;
-pub use output_list_builder::r#type::OutputListBuilder;
+pub use r#macro::r#macro::*;
+pub use output::{r#fn::*, r#struct::Output};
+pub use output_builder::r#struct::OutputBuilder;
+pub use output_list::r#struct::OutputList;
+pub use output_list_builder::r#struct::OutputListBuilder;
