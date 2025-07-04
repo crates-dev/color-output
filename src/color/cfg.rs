@@ -37,7 +37,7 @@ fn test_color256_fg_color() {
     use crate::*;
     use color::r#fn::color256_fg_color;
     let color_str: String = color256_fg_color(0x3f3f3f);
-    let ans_color_str: String = format!("\x1b[38;5;{}m", 0x3f3f3f);
+    let ans_color_str: String = format!("\x1b[38;5;{}m", 237);
     assert_eq!(color_str, ans_color_str);
 }
 
