@@ -1,8 +1,8 @@
 [package]
 name = "color-output"
-version = "7.0.0"
+version = "7.0.1"
 edition = "2024"
-authors = ["root@ltpp.vip"] 
+authors = ["root@ltpp.vip"]
 license = "MIT"
 description = "An atomic output library based on Rust that supports output functionalities through functions, builders, and other methods. It allows customization of text and background colors."
 keywords = ["output", "console", "log", "print", "color"]
