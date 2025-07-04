@@ -81,8 +81,6 @@ macro_rules! print_message_common_handler {
             .bg_color($bg_color)
             .build();
         let mut text_output_builder: OutputBuilder<'_> = OutputBuilder::new();
-        let mut text_endl_output_builder: OutputBuilder<'_> = OutputBuilder::new();
-        let text_endl_output: Output<'_> = text_endl_output_builder.text("\n").endl(false).build();
         let mut text: String = String::new();
         $(
             text.push_str(&$data.to_string());
@@ -94,12 +92,9 @@ macro_rules! print_message_common_handler {
             let text_output: Output<'_> = text_output_builder
                 .text(&line)
                 .blod(true)
-                .endl(false)
+                .endl(true)
                 .build();
             output_list_builder.add(text_output);
-            if lines_iter.peek().is_some() {
-                output_list_builder.add(text_endl_output.clone());
-            }
             output_list_builder.run();
         }
     }};
