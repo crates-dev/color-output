@@ -1,7 +1,4 @@
 use crate::*;
-use color::blod::{BLOD, UNBLOD};
-use color::r#const::RESET;
-use std::borrow::Cow;
 
 /// Represents a text with formatting options.
 #[derive(Debug, Clone, PartialEq)]
@@ -16,4 +13,6 @@ pub(crate) struct Text<'a> {
     pub(crate) blod: bool,
     /// endl
     pub(crate) endl: bool,
+    /// Whether to enable automatic color contrast adjustment
+    pub(crate) auto_contrast: bool,
 }

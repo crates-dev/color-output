@@ -10,6 +10,7 @@ fn test_text() {
         bg_color: ColorType::default(),
         blod: false,
         endl: false,
+        auto_contrast: true,
     };
     let text_str: &String = &text.get_display_str_cow().into_owned();
     assert_eq!(text_default_str, text_str);

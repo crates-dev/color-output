@@ -11,6 +11,7 @@ impl<'a> Default for Text<'a> {
             bg_color: ColorType::default(),
             blod: false,
             endl: false,
+            auto_contrast: true,
         }
     }
 }
@@ -38,7 +39,15 @@ impl<'a> Text<'a> {
     pub(crate) fn get_display_str_cow(&self) -> Cow<'a, str> {
         let text: &str = self.text;
         let blod: bool = self.blod.clone();
-        let color: &String = &self.color.to_string();
+
+        let adjusted_color: ColorType =
+            if self.auto_contrast && !matches!(self.bg_color, ColorType::Use(Color::Default)) {
+                ColorContrast::ensure_sufficient_contrast(&self.color, &self.bg_color)
+            } else {
+                self.color.clone()
+            };
+
+        let color: &String = &adjusted_color.to_string();
         let bg_color: &String = &self.bg_color.get_str(DisplayType::Background);
         let mut colored_text: String = if blod {
             format!("{}{}{}{}{}{}", bg_color, color, BLOD, text, UNBLOD, RESET)

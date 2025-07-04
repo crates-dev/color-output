@@ -8,6 +8,7 @@ impl<'a> Default for Output<'a> {
             bg_color: ColorType::default(),
             blod: false,
             endl: false,
+            auto_contrast: true,
         }
     }
 }

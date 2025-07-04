@@ -1,6 +1,4 @@
 use crate::*;
-use std::borrow::Cow;
-use text::r#struct::Text;
 
 /// Task structure
 #[derive(Debug, Clone, PartialEq)]

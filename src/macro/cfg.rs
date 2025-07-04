@@ -1,6 +1,4 @@
-use crate::{
-    print_error, print_success, print_warning, println_error, println_success, println_warning,
-};
+use crate::*;
 
 #[test]
 fn test_proc_macro_output_struct() {
@@ -15,7 +13,7 @@ fn test_proc_macro_output_struct() {
 }
 
 #[test]
-fn test_proc_mcacro_output_builder() {
+fn test_proc_macro_output_builder() {
     use crate::*;
     output_macro!(
         OutputBuilder::new()
@@ -56,12 +54,6 @@ fn test_proc_macro_multiple() {
 #[test]
 fn test_print_type() {
     let msg: &str = "1\n2\n3\r\n4";
-    print_success!(msg);
-    println!("\n==========");
-    print_warning!(msg);
-    println!("\n==========");
-    print_error!(msg);
-    println!("\n==========");
     println_success!(msg);
     println!("==========");
     println_warning!(msg);
@@ -69,12 +61,6 @@ fn test_print_type() {
     println_error!(msg);
     println!("==========");
     let msg: &str = "1234";
-    print_success!(msg, msg);
-    println!("\n==========");
-    print_warning!(msg, msg);
-    println!("\n==========");
-    print_error!(msg, msg);
-    println!("\n==========");
     println_success!(msg, msg);
     println!("==========");
     println_warning!(msg, msg);

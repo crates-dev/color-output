@@ -79,6 +79,18 @@ impl<'a> OutputBuilder<'a> {
         self
     }
 
+    /// Sets the `auto_contrast` value for the `Output`.
+    ///
+    /// # Parameters
+    /// - `auto_contrast`: A boolean value that determines whether to enable automatic color contrast adjustment.
+    ///
+    /// # Returns
+    /// - `&mut Self`: Returns a mutable reference to the current `Output` instance, allowing method chaining.
+    pub fn auto_contrast(&mut self, auto_contrast: bool) -> &mut Self {
+        self.output.auto_contrast = auto_contrast;
+        self
+    }
+
     /// Builds and returns the Output struct.
     ///
     /// # Returns

@@ -1,4 +1,4 @@
-use crate::Output;
+use crate::*;
 
 /// OutputListBuilder struct
 ///

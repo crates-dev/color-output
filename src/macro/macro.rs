@@ -69,16 +69,16 @@ macro_rules! output_macro {
 
 #[macro_export]
 macro_rules! print_message_common_handler {
-    ($level:expr, $color:expr, $bg_color:expr, $endl:expr, $($data:expr),*) => {{
+    ($color:expr, $bg_color:expr, $($data:expr),*) => {{
         use crate::*;
         use std::fmt::*;
-        let binding: String = format!("[{} => {}]", time(), $level);
+        let binding: String = format!("[{}]", time());
         let mut time_output_builder: OutputBuilder<'_> = OutputBuilder::new();
         let time_output: Output<'_> = time_output_builder
             .text(&binding)
             .blod(true)
+            .color($color)
             .bg_color($bg_color)
-            .color(ColorType::Color256(0xffffff))
             .build();
         let mut text_output_builder: OutputBuilder<'_> = OutputBuilder::new();
         let mut text_endl_output_builder: OutputBuilder<'_> = OutputBuilder::new();
@@ -94,11 +94,10 @@ macro_rules! print_message_common_handler {
             let text_output: Output<'_> = text_output_builder
                 .text(&line)
                 .blod(true)
-                .color($color)
                 .endl(false)
                 .build();
             output_list_builder.add(text_output);
-            if lines_iter.peek().is_some() || $endl {
+            if lines_iter.peek().is_some() {
                 output_list_builder.add(text_endl_output.clone());
             }
             output_list_builder.run();
@@ -107,43 +106,22 @@ macro_rules! print_message_common_handler {
 }
 
 #[macro_export]
-macro_rules! print_success {
-    ($($data:expr),*) => {
-        crate::print_message_common_handler!("success", ColorType::Rgb(0,255,0), ColorType::Rgb(0,255,0), false, $($data),*);
-    };
-}
-
-#[macro_export]
-macro_rules! print_warning {
-    ($($data:expr),*) => {
-        crate::print_message_common_handler!("warning", ColorType::Rgb(255, 255, 0), ColorType::Rgb(255, 255, 0), false, $($data),*);
-    };
-}
-
-#[macro_export]
-macro_rules! print_error {
-    ($($data:expr),*) => {
-        crate::print_message_common_handler!("error", ColorType::Rgb(255,0,0), ColorType::Rgb(255,0,0), false, $($data),*);
-    };
-}
-
-#[macro_export]
 macro_rules! println_success {
     ($($data:expr),*) => {
-        crate::print_message_common_handler!("success", ColorType::Rgb(0,255,0), ColorType::Rgb(0,255,0), true, $($data),*);
+        crate::print_message_common_handler!(ColorType::Rgb(0,0,0), ColorType::Rgb(0,128,0), $($data),*);
     };
 }
 
 #[macro_export]
 macro_rules! println_warning {
     ($($data:expr),*) => {
-        crate::print_message_common_handler!("warning", ColorType::Rgb(255, 255, 0), ColorType::Rgb(255, 255, 0), true, $($data),*);
+        crate::print_message_common_handler!(ColorType::Rgb(0,0,0), ColorType::Rgb(255,255,0), $($data),*);
     };
 }
 
 #[macro_export]
 macro_rules! println_error {
     ($($data:expr),*) => {
-        crate::print_message_common_handler!("error", ColorType::Rgb(255,0,0), ColorType::Rgb(255,0,0), true, $($data),*);
+        crate::print_message_common_handler!(ColorType::Rgb(0,0,0), ColorType::Rgb(220,20,60), $($data),*);
     };
 }

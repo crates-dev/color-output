@@ -1,9 +1,4 @@
-use super::r#fn::{color256_bg_color, color256_fg_color, rgb_bg_color, rgb_fg_color};
-use crate::color::r#const::{
-    BG_BLACK, BG_BLUE, BG_CYAN, BG_GREEN, BG_MAGENTA, BG_RED, BG_WHITE, BG_YELLOW, BLACK, BLUE,
-    CYAN, DEFAULT, GREEN, MAGENTA, RED, WHITE, YELLOW,
-};
-use std::fmt::{self, Display};
+use crate::*;
 
 /// ColorType
 #[derive(Debug, Clone, PartialEq)]
