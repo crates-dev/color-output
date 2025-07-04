@@ -11,7 +11,6 @@ impl<'a> Default for Text<'a> {
             bg_color: ColorType::default(),
             blod: false,
             endl: false,
-            auto_contrast: true,
         }
     }
 }
@@ -40,13 +39,11 @@ impl<'a> Text<'a> {
         let text: &str = self.text;
         let blod: bool = self.blod.clone();
 
-        let adjusted_color: ColorType =
-            if self.auto_contrast && !matches!(self.bg_color, ColorType::Use(Color::Default)) {
-                ColorContrast::ensure_sufficient_contrast(&self.color, &self.bg_color)
-            } else {
-                self.color.clone()
-            };
-
+        let adjusted_color: ColorType = if matches!(self.color, ColorType::Use(Color::Default)) {
+            ColorContrast::ensure_sufficient_contrast(&self.color, &self.bg_color)
+        } else {
+            self.color.clone()
+        };
         let color: &String = &adjusted_color.to_string();
         let bg_color: &String = &self.bg_color.get_str(DisplayType::Background);
         let mut colored_text: String = if blod {

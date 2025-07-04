@@ -36,7 +36,6 @@ pub fn output_list(output_list: &Vec<Output>) {
         let blod: bool = output.blod.clone();
         // endl
         let endl: bool = output.endl;
-        let auto_contrast: bool = output.auto_contrast;
         // Add text
         task_list.add(Text {
             text,
@@ -44,7 +43,6 @@ pub fn output_list(output_list: &Vec<Output>) {
             bg_color,
             blod,
             endl,
-            auto_contrast,
         });
     }
     // run

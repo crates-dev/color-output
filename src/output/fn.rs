@@ -32,7 +32,6 @@ pub fn output(output: Output) {
     let blod: bool = output.blod.clone();
     // endl
     let endl: bool = output.endl;
-    let auto_contrast: bool = output.auto_contrast;
     let mut task_list: Task<'_> = Task::default();
     // Add text
     task_list.add(Text {
@@ -41,7 +40,6 @@ pub fn output(output: Output) {
         bg_color,
         blod,
         endl,
-        auto_contrast,
     });
     // run
     task_list.run_all();

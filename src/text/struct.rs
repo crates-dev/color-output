@@ -13,6 +13,4 @@ pub(crate) struct Text<'a> {
     pub(crate) blod: bool,
     /// endl
     pub(crate) endl: bool,
-    /// Whether to enable automatic color contrast adjustment
-    pub(crate) auto_contrast: bool,
 }

@@ -46,6 +46,4 @@ pub struct Output<'a> {
     pub blod: bool,
     /// endl
     pub endl: bool,
-    /// Whether to enable automatic color contrast adjustment
-    pub auto_contrast: bool,
 }

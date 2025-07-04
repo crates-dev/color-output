@@ -103,20 +103,20 @@ macro_rules! print_message_common_handler {
 #[macro_export]
 macro_rules! println_success {
     ($($data:expr),*) => {
-        crate::print_message_common_handler!(ColorType::Rgb(0,0,0), ColorType::Rgb(0,128,0), $($data),*);
+        crate::print_message_common_handler!(ColorType::Use(Color::White), ColorType::Use(Color::Green), $($data),*);
     };
 }
 
 #[macro_export]
 macro_rules! println_warning {
     ($($data:expr),*) => {
-        crate::print_message_common_handler!(ColorType::Rgb(0,0,0), ColorType::Rgb(255,255,0), $($data),*);
+        crate::print_message_common_handler!(ColorType::Use(Color::White), ColorType::Use(Color::Yellow), $($data),*);
     };
 }
 
 #[macro_export]
 macro_rules! println_error {
     ($($data:expr),*) => {
-        crate::print_message_common_handler!(ColorType::Rgb(0,0,0), ColorType::Rgb(220,20,60), $($data),*);
+        crate::print_message_common_handler!(ColorType::Use(Color::White), ColorType::Use(Color::Red), $($data),*);
     };
 }
