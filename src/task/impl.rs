@@ -18,9 +18,6 @@ impl<'a> Task<'a> {
     ///
     /// If the `new_text` is empty, no text is added and the method returns the current task instance unchanged.
     pub(crate) fn add(&mut self, new_text: Text<'a>) -> &mut Self {
-        if new_text.text.is_empty() {
-            return self;
-        }
         self.text_list.push(new_text);
         self
     }
