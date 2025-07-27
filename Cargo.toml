@@ -1,10 +1,10 @@
 [package]
 name = "color-output"
-version = "7.0.6"
+version = "7.1.0"
 edition = "2024"
 authors = ["root@ltpp.vip"]
 license = "MIT"
-description = "An atomic output library based on Rust that supports output functionalities through functions, builders, and other methods. It allows customization of text and background colors."
+description = """An atomic output library based on Rust that supports output functionalities through functions, builders, and other methods. It allows customization of text and background colors."""
 keywords = ["output", "console", "log", "print", "color"]
 repository = "https://github.com/eastspire/color-output"
 categories = ["command-line-interface", "development-tools", "visualization"]
@@ -16,7 +16,7 @@ exclude = [
 ]
 
 [dependencies]
-hyperlane-time = "0.5.6"
+hyperlane-time = "0.7.0"
 
 [profile.dev]
 incremental = false

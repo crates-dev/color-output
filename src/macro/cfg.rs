@@ -1,5 +1,3 @@
-use crate::*;
-
 #[test]
 fn test_proc_macro_output_struct() {
     use crate::*;
@@ -53,6 +51,7 @@ fn test_proc_macro_multiple() {
 
 #[test]
 fn test_print_type() {
+    use crate::*;
     let msg: &str = "1\n2\n3\r\n4";
     println_success!(msg);
     println!("==========");

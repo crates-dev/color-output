@@ -1,63 +1,7 @@
-/// Output macro
+/// Macro for outputting colored text to the terminal.
 ///
-/// [Official Documentation](https://docs.ltpp.vip/COLOR-OUTPUT/),
-///
-/// # Parameters
-/// - `Output`: The output struct
-///
-/// # Code Example
-///
-/// ## Using the Struct
-///
-/// ```rust
-/// use color_output::*;
-/// output_macro!(Output {
-///     text: "test_proc_macro",
-///     color: ColorType::default(),
-///     bg_color: ColorType::Use(Color::Yellow),
-///     endl: true,
-///     ..Default::default()
-/// });
-/// ```
-///
-/// ## Using the Constructor
-///
-/// ```rust
-/// use color_output::*;
-/// output_macro!(OutputBuilder::new()
-///     .text("test_output_builder")
-///     .color(ColorType::Use(Color::Cyan))
-///     .blod(true)
-///     .endl(true)
-///     .build());
-/// ```
-///
-/// ## Multiple Inputs
-///
-/// ```rust
-/// use color_output::*;
-/// output_macro!(
-///     Output {
-///         text: "test_proc_macro",
-///         color: ColorType::default(),
-///         bg_color: ColorType::Use(Color::Yellow),
-///         endl: true,
-///         ..Default::default()
-///     },
-///     OutputBuilder::new()
-///         .text("test_output_builder1")
-///         .color(ColorType::Color256(0xffffff))
-///         .blod(true)
-///         .endl(true)
-///         .build(),
-///     OutputBuilder::new()
-///         .text("test_output_builder2")
-///         .color(ColorType::Color256(0xffffff))
-///         .blod(true)
-///         .endl(true)
-///         .build()
-/// );
-/// ```
+/// Accepts either Output structs or OutputBuilder instances and executes
+/// their output operations. Multiple outputs can be provided as arguments.
 #[macro_export]
 macro_rules! output_macro {
     ($($output:expr),*) => {
@@ -67,11 +11,13 @@ macro_rules! output_macro {
     };
 }
 
+/// Internal macro for handling common message printing logic.
+///
+/// Used by the success/warning/error printing macros to avoid code duplication.
 #[macro_export]
 macro_rules! print_message_common_handler {
     ($color:expr, $bg_color:expr, $($data:expr),*) => {{
         use crate::*;
-        use std::fmt::*;
         let binding: String = format!("[{}]", time());
         let mut time_output_builder: OutputBuilder<'_> = OutputBuilder::new();
         let time_output: Output<'_> = time_output_builder
@@ -100,6 +46,7 @@ macro_rules! print_message_common_handler {
     }};
 }
 
+/// Prints a success message with green background and white text.
 #[macro_export]
 macro_rules! println_success {
     ($($data:expr),*) => {
@@ -107,6 +54,7 @@ macro_rules! println_success {
     };
 }
 
+/// Prints a warning message with yellow background and white text.
 #[macro_export]
 macro_rules! println_warning {
     ($($data:expr),*) => {
@@ -114,6 +62,7 @@ macro_rules! println_warning {
     };
 }
 
+/// Prints an error message with red background and white text.
 #[macro_export]
 macro_rules! println_error {
     ($($data:expr),*) => {
