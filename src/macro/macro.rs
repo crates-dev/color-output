@@ -15,7 +15,7 @@ macro_rules! output_macro {
 ///
 /// Used by the success/warning/error printing macros to avoid code duplication.
 #[macro_export]
-macro_rules! print_message_common_handler {
+macro_rules! __print_message_common {
     ($color:expr, $bg_color:expr, $($data:expr),*) => {{
         use crate::*;
         let binding: String = format!("[{}]", time());
@@ -50,7 +50,7 @@ macro_rules! print_message_common_handler {
 #[macro_export]
 macro_rules! println_success {
     ($($data:expr),*) => {
-        crate::print_message_common_handler!(ColorType::Use(Color::White), ColorType::Use(Color::Green), $($data),*);
+        crate::__print_message_common!(ColorType::Use(Color::White), ColorType::Use(Color::Green), $($data),*);
     };
 }
 
@@ -58,7 +58,7 @@ macro_rules! println_success {
 #[macro_export]
 macro_rules! println_warning {
     ($($data:expr),*) => {
-        crate::print_message_common_handler!(ColorType::Use(Color::White), ColorType::Use(Color::Yellow), $($data),*);
+        crate::__print_message_common!(ColorType::Use(Color::White), ColorType::Use(Color::Yellow), $($data),*);
     };
 }
 
@@ -66,6 +66,6 @@ macro_rules! println_warning {
 #[macro_export]
 macro_rules! println_error {
     ($($data:expr),*) => {
-        crate::print_message_common_handler!(ColorType::Use(Color::White), ColorType::Use(Color::Red), $($data),*);
+        crate::__print_message_common!(ColorType::Use(Color::White), ColorType::Use(Color::Red), $($data),*);
     };
 }
