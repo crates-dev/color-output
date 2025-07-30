@@ -1,8 +1,8 @@
 use crate::*;
 
-/// Task structure
+/// Represents a collection of text tasks to be executed sequentially.
 #[derive(Debug, Clone, PartialEq)]
 pub(crate) struct Task<'a> {
-    /// List of text structures
+    /// Collection of text configurations to process
     pub(crate) text_list: Vec<Text<'a>>,
 }

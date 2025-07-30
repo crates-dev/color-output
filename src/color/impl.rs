@@ -1,15 +1,17 @@
 use crate::*;
 
 impl ColorContrast {
-    /// Calculates the relative luminance of a color
+    /// Calculates the relative luminance of a color.
     ///
-    /// # Parameters
-    /// - `r`: Red component (0-255)
-    /// - `g`: Green component (0-255)
-    /// - `b`: Blue component (0-255)
+    /// # Arguments
+    ///
+    /// - `u8` - Red component (0-255)
+    /// - `u8` - Green component (0-255)
+    /// - `u8` - Blue component (0-255)
     ///
     /// # Returns
-    /// - `f64`: Relative luminance value (0.0-1.0)
+    ///
+    /// - `f64` - Relative luminance value (0.0-1.0)
     pub fn calculate_luminance(r: u8, g: u8, b: u8) -> f64 {
         let r_norm: f64 = r as f64 / 255.0;
         let g_norm: f64 = g as f64 / 255.0;
@@ -32,14 +34,16 @@ impl ColorContrast {
         0.2126 * r_linear + 0.7152 * g_linear + 0.0722 * b_linear
     }
 
-    /// Calculates the contrast ratio between two colors
+    /// Calculates the contrast ratio between two colors.
     ///
-    /// # Parameters
-    /// - `color1`: First color RGB values
-    /// - `color2`: Second color RGB values
+    /// # Arguments
+    ///
+    /// - `(u8, u8, u8)` - First color RGB values
+    /// - `(u8, u8, u8)` - Second color RGB values
     ///
     /// # Returns
-    /// - `f64`: Contrast ratio (1.0-21.0)
+    ///
+    /// - `f64` - Contrast ratio (1.0-21.0)
     pub fn calculate_contrast_ratio(color1: (u8, u8, u8), color2: (u8, u8, u8)) -> f64 {
         let lum1: f64 = Self::calculate_luminance(color1.0, color1.1, color1.2);
         let lum2: f64 = Self::calculate_luminance(color2.0, color2.1, color2.2);
@@ -48,13 +52,15 @@ impl ColorContrast {
         (lighter + 0.05) / (darker + 0.05)
     }
 
-    /// Extracts RGB values from ColorType
+    /// Extracts RGB values from ColorType.
     ///
-    /// # Parameters
-    /// - `color`: ColorType to extract RGB from
+    /// # Arguments
+    ///
+    /// - `&ColorType` - Color to extract RGB from
     ///
     /// # Returns
-    /// - `(u8, u8, u8)`: RGB values
+    ///
+    /// - `(u8, u8, u8)` - RGB values
     pub fn extract_rgb_from_color_type(color: &ColorType) -> (u8, u8, u8) {
         match color {
             ColorType::Rgb(r, g, b) => (*r, *g, *b),
@@ -81,14 +87,16 @@ impl ColorContrast {
         }
     }
 
-    /// Checks if two colors have sufficient contrast for readability
+    /// Checks if two colors have sufficient contrast for readability.
     ///
-    /// # Parameters
-    /// - `text_color`: Text color
-    /// - `bg_color`: Background color
+    /// # Arguments
+    ///
+    /// - `&ColorType` - Text color
+    /// - `&ColorType` - Background color
     ///
     /// # Returns
-    /// - `bool`: True if contrast is sufficient (ratio >= 4.5)
+    ///
+    /// - `bool` - Whether contrast is sufficient (ratio >= 4.5)
     pub fn has_sufficient_contrast(text_color: &ColorType, bg_color: &ColorType) -> bool {
         let text_rgb: (u8, u8, u8) = Self::extract_rgb_from_color_type(text_color);
         let bg_rgb: (u8, u8, u8) = Self::extract_rgb_from_color_type(bg_color);
@@ -96,14 +104,16 @@ impl ColorContrast {
         ratio >= 4.5
     }
 
-    /// Automatically adjusts text color to ensure sufficient contrast with background
+    /// Automatically adjusts text color to ensure sufficient contrast with background.
     ///
-    /// # Parameters
-    /// - `text_color`: Original text color
-    /// - `bg_color`: Background color
+    /// # Arguments
+    ///
+    /// - `&ColorType` - Original text color
+    /// - `&ColorType` - Background color
     ///
     /// # Returns
-    /// - `ColorType`: Adjusted text color with sufficient contrast
+    ///
+    /// - `ColorType` - Adjusted text color with sufficient contrast
     pub fn ensure_sufficient_contrast(text_color: &ColorType, bg_color: &ColorType) -> ColorType {
         if Self::has_sufficient_contrast(text_color, bg_color) {
             return text_color.clone();
@@ -118,14 +128,16 @@ impl ColorContrast {
         }
     }
 
-    /// Darkens a color while preserving its hue for better contrast against light backgrounds
+    /// Darkens a color while preserving its hue for better contrast against light backgrounds.
     ///
-    /// # Parameters
-    /// - `text_rgb`: Original text color RGB
-    /// - `bg_rgb`: Background color RGB
+    /// # Arguments
+    ///
+    /// - `(u8, u8, u8)` - Original text color RGB
+    /// - `(u8, u8, u8)` - Background color RGB
     ///
     /// # Returns
-    /// - `ColorType`: Darkened color with sufficient contrast
+    ///
+    /// - `ColorType` - Darkened color with sufficient contrast
     fn darken_color_for_contrast(text_rgb: (u8, u8, u8), bg_rgb: (u8, u8, u8)) -> ColorType {
         let (r, g, b): (u8, u8, u8) = text_rgb;
         let max_component: u8 = r.max(g).max(b);
@@ -144,14 +156,16 @@ impl ColorContrast {
         }
     }
 
-    /// Lightens a color while preserving its hue for better contrast against dark backgrounds
+    /// Lightens a color while preserving its hue for better contrast against dark backgrounds.
     ///
-    /// # Parameters
-    /// - `text_rgb`: Original text color RGB
-    /// - `bg_rgb`: Background color RGB
+    /// # Arguments
+    ///
+    /// - `(u8, u8, u8)` - Original text color RGB
+    /// - `(u8, u8, u8)` - Background color RGB
     ///
     /// # Returns
-    /// - `ColorType`: Lightened color with sufficient contrast
+    ///
+    /// - `ColorType` - Lightened color with sufficient contrast
     fn lighten_color_for_contrast(text_rgb: (u8, u8, u8), bg_rgb: (u8, u8, u8)) -> ColorType {
         let (r, g, b): (u8, u8, u8) = text_rgb;
         let scale_factor: f64 = 2.5;

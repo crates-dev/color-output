@@ -1,5 +1,6 @@
 use crate::*;
 
+/// Default implementation for Output with empty configuration.
 impl<'a> Default for Output<'a> {
     fn default() -> Self {
         Output {
@@ -13,10 +14,11 @@ impl<'a> Default for Output<'a> {
 }
 
 impl<'a> Output<'a> {
-    /// Outputs
+    /// Executes the output operation with current configuration.
     ///
     /// # Returns
-    /// - `()` : Nothing is returned.
+    ///
+    /// - `()` - No return value
     pub fn output(self) {
         output(self);
     }

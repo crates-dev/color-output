@@ -17,11 +17,11 @@ impl<'a> OutputBuilder<'a> {
     ///
     /// # Arguments
     ///
-    /// - `Output<'a>` - The output to initialize from.
+    /// - `Output` - The output configuration to initialize from
     ///
     /// # Returns
     ///
-    /// - `OutputBuilder<'a>` - The new builder instance.
+    /// - `OutputBuilder` - The new builder instance
     pub fn new_from(output: Output<'a>) -> Self {
         Self { output }
     }
@@ -30,11 +30,11 @@ impl<'a> OutputBuilder<'a> {
     ///
     /// # Arguments
     ///
-    /// - `&'a str` - The text content.
+    /// - `&str` - The text content to display
     ///
     /// # Returns
     ///
-    /// - `&mut Self` - The builder for chaining.
+    /// - `&mut Self` - The builder for method chaining
     pub fn text(&mut self, text: &'a str) -> &mut Self {
         self.output.text = text;
         self
@@ -44,11 +44,11 @@ impl<'a> OutputBuilder<'a> {
     ///
     /// # Arguments
     ///
-    /// - `ColorType` - The color type.
+    /// - `ColorType` - The color to apply to text
     ///
     /// # Returns
     ///
-    /// - `&mut Self` - The builder for chaining.
+    /// - `&mut Self` - The builder for method chaining
     pub fn color(&mut self, color: ColorType) -> &mut Self {
         self.output.color = color;
         self

@@ -2,30 +2,17 @@ use crate::text::r#struct::Text;
 use crate::*;
 use task::r#struct::Task;
 
-/// Output list
+/// Executes a sequence of output operations.
 ///
-/// [Official Documentation](https://docs.ltpp.vip/COLOR-OUTPUT/),
+/// [Official Documentation](https://docs.ltpp.vip/COLOR-OUTPUT/)
 ///
-/// # Parameters
-/// - `Vec<Output>`: The output struct
+/// # Arguments
 ///
-/// # Code Example
+/// - `Vec<Output>` - Collection of output configurations to execute
 ///
-/// ## Using the Struct
+/// # Returns
 ///
-/// ### Using the output Function
-///
-/// ```rust
-/// use color_output::*;
-/// ```
-///
-/// ## Using the Constructor
-///
-/// ### Using the output Function
-///
-/// ```rust
-/// use color_output::*;
-/// ```
+/// - `()` - No return value
 pub fn output_list(output_list: &Vec<Output>) {
     let mut task_list: Task<'_> = Task::default();
     for output in output_list {

@@ -1,7 +1,8 @@
 /// Macro for outputting colored text to the terminal.
 ///
-/// Accepts either Output structs or OutputBuilder instances and executes
-/// their output operations. Multiple outputs can be provided as arguments.
+/// # Arguments
+///
+/// - `Output` or `OutputBuilder` - One or more output instances to execute
 #[macro_export]
 macro_rules! output_macro {
     ($($output:expr),*) => {
@@ -12,6 +13,12 @@ macro_rules! output_macro {
 }
 
 /// Internal macro for handling common message printing logic.
+///
+/// # Arguments
+///
+/// - `ColorType` - Text color
+/// - `ColorType` - Background color
+/// - `&str` - One or more message strings to print
 ///
 /// Used by the success/warning/error printing macros to avoid code duplication.
 #[macro_export]

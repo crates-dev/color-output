@@ -1,35 +1,39 @@
 use crate::*;
 
 impl<'a> OutputListBuilder<'a> {
-    /// Creates a new empty `OutputListBuilder`.
+    /// Creates a new empty OutputListBuilder.
     ///
     /// # Returns
-    /// - `Self`: A new instance of `OutputListBuilder` with an empty output list.
+    ///
+    /// - `OutputListBuilder` - New instance with empty output list
     pub fn new() -> Self {
         Self {
             output_list: vec![],
         }
     }
 
-    /// Creates a new `OutputListBuilder` from a given vector of outputs.
+    /// Creates a new OutputListBuilder from existing outputs.
     ///
-    /// # Parameters
-    /// - `output_list`: A vector of `Output` items to initialize the list with.
+    /// # Arguments
+    ///
+    /// - `Vec<Output>` - Collection of outputs to initialize with
     ///
     /// # Returns
-    /// - `Self`: A new instance of `OutputListBuilder` containing the specified outputs.
+    ///
+    /// - `OutputListBuilder` - New instance containing the specified outputs
     pub fn new_from(output_list: Vec<Output<'a>>) -> Self {
         Self { output_list }
     }
 
-    /// Adds an output item to the output list.
+    /// Adds an output to the list.
     ///
-    /// # Parameters
-    /// - `&mut self`: A mutable reference to the current instance of `OutputListBuilder`.
-    /// - `output`: The `Output` item to be added to the list.
+    /// # Arguments
+    ///
+    /// - `Output` - The output configuration to add
     ///
     /// # Returns
-    /// - `&mut Self`: A mutable reference to the current instance, allowing for method chaining.
+    ///
+    /// - `&mut Self` - The builder for method chaining
     pub fn add(&mut self, output: Output<'a>) -> &mut Self {
         self.output_list.push(output);
         self

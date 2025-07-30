@@ -1,10 +1,12 @@
 /// Generates an ANSI escape sequence for foreground colors in 256 colors.
 ///
-/// # Parameters
-/// - `code`: The RGB color code in hexadecimal format (0x000000 to 0xFFFFFF).
+/// # Arguments
+///
+/// - `u32` - RGB color code in hexadecimal format (0x000000 to 0xFFFFFF)
 ///
 /// # Returns
-/// - `String`: Returns a string containing the ANSI escape sequence for the foreground color.
+///
+/// - `String` - ANSI escape sequence for the foreground color
 pub fn color256_fg_color(code: u32) -> String {
     if code > 0xFFFFFF {
         return String::new();
@@ -18,11 +20,13 @@ pub fn color256_fg_color(code: u32) -> String {
 
 /// Generates an ANSI escape sequence for background colors in 256 colors.
 ///
-/// # Parameters
-/// - `code`: The RGB color code in hexadecimal format (0x000000 to 0xFFFFFF).
+/// # Arguments
+///
+/// - `u32` - RGB color code in hexadecimal format (0x000000 to 0xFFFFFF)
 ///
 /// # Returns
-/// - `String`: Returns a string containing the ANSI escape sequence for the background color.
+///
+/// - `String` - ANSI escape sequence for the background color
 pub fn color256_bg_color(code: u32) -> String {
     if code > 0xFFFFFF {
         return String::new();
@@ -36,39 +40,45 @@ pub fn color256_bg_color(code: u32) -> String {
 
 /// Generates an ANSI escape sequence for true color foreground colors.
 ///
-/// # Parameters
-/// - `r`: The red component, which ranges from 0 to 255.
-/// - `g`: The green component, which ranges from 0 to 255.
-/// - `b`: The blue component, which ranges from 0 to 255.
+/// # Arguments
+///
+/// - `u8` - Red component (0-255)
+/// - `u8` - Green component (0-255)
+/// - `u8` - Blue component (0-255)
 ///
 /// # Returns
-/// - `String`: Returns a string containing the ANSI escape sequence for the true color foreground color.
+///
+/// - `String` - ANSI escape sequence for the true color foreground
 pub fn rgb_fg_color(r: u8, g: u8, b: u8) -> String {
     format!("\x1b[38;2;{};{};{}m", r, g, b)
 }
 
 /// Generates an ANSI escape sequence for true color background colors.
 ///
-/// # Parameters
-/// - `r`: The red component, which ranges from 0 to 255.
-/// - `g`: The green component, which ranges from 0 to 255.
-/// - `b`: The blue component, which ranges from 0 to 255.
+/// # Arguments
+///
+/// - `u8` - Red component (0-255)
+/// - `u8` - Green component (0-255)
+/// - `u8` - Blue component (0-255)
 ///
 /// # Returns
-/// - `String`: Returns a string containing the ANSI escape sequence for the true color background color.
+///
+/// - `String` - ANSI escape sequence for the true color background
 pub fn rgb_bg_color(r: u8, g: u8, b: u8) -> String {
     format!("\x1b[48;2;{};{};{}m", r, g, b)
 }
 
 /// Converts RGB values to 256-color palette index with high precision.
 ///
-/// # Parameters
-/// - `r`: The red component (0-255)
-/// - `g`: The green component (0-255)
-/// - `b`: The blue component (0-255)
+/// # Arguments
+///
+/// - `u8` - Red component (0-255)
+/// - `u8` - Green component (0-255)
+/// - `u8` - Blue component (0-255)
 ///
 /// # Returns
-/// - `u32`: The 256-color palette index (16-231 for RGB colors, 0-15 for standard colors, 232-255 for grayscale)
+///
+/// - `u32` - 256-color palette index (16-231 for RGB colors, 0-15 for standard colors, 232-255 for grayscale)
 fn rgb_to_256_color_index(r: u8, g: u8, b: u8) -> u32 {
     if r == g && g == b {
         if r < 8 {

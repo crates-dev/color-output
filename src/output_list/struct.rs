@@ -1,34 +1,10 @@
 use crate::Output;
 
-/// OutputList struct
+/// Represents a list of Output configurations for sequential execution.
 ///
-/// [Official Documentation](https://docs.ltpp.vip/COLOR-OUTPUT/),
-///
-/// # Code Example
-///
-/// ## Using the Struct
-///
-/// ### Using the output Method
-///
-/// ```rust
-/// use color_output::*;
-/// OutputList(vec![
-///     Output {
-///         text: "test_output_list_struct_1",
-///         color: ColorType::Use(Color::Default),
-///         bg_color: ColorType::Color256(0x000000),
-///         endl: false,
-///         ..Default::default()
-///     },
-///     Output {
-///         text: "test_output_struct_output_2",
-///         color: ColorType::Use(Color::Default),
-///         bg_color: ColorType::Use(Color::Blue),
-///         endl: true,
-///         ..Default::default()
-///     },
-/// ])
-/// .output();
-/// ```
+/// [Official Documentation](https://docs.ltpp.vip/COLOR-OUTPUT/)
 #[derive(Debug, Clone)]
-pub struct OutputList<'a>(pub Vec<Output<'a>>);
+pub struct OutputList<'a>(
+    /// Collection of Output configurations to execute in sequence
+    pub Vec<Output<'a>>,
+);

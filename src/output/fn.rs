@@ -1,29 +1,12 @@
 use crate::*;
 
-/// Output
+/// Executes the output operation with the given formatting.
 ///
-/// [Official Documentation](https://docs.ltpp.vip/COLOR-OUTPUT/),
+/// [Official Documentation](https://docs.ltpp.vip/COLOR-OUTPUT/)
 ///
-/// # Parameters
-/// - `Output`: The output struct
+/// # Arguments
 ///
-/// # Code Example
-///
-/// ## Using the Struct
-///
-/// ### Using the output Function
-///
-/// ```rust
-/// use color_output::*;
-/// ```
-///
-/// ## Using the Constructor
-///
-/// ### Using the output Function
-///
-/// ```rust
-/// use color_output::*;
-/// ```
+/// - `Output` - The output configuration
 pub fn output(output: Output) {
     // Text
     let text: &str = output.text;

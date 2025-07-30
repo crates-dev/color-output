@@ -1,57 +1,60 @@
 use crate::*;
 
-/// ColorType
+/// Represents different types of colors that can be used for text formatting.
 #[derive(Debug, Clone, PartialEq)]
 pub enum ColorType {
-    /// RGB Color (r, g, b),
+    /// RGB color with red, green and blue components.
     Rgb(u8, u8, u8),
-    /// Color 256
+    /// 256-color palette color.
     Color256(u32),
-    /// Built-in Colors
+    /// Predefined built-in colors.
     Use(Color),
 }
 
-/// Display Type
+/// Specifies whether color applies to text or background.
 #[derive(Debug, Clone, PartialEq)]
 pub(crate) enum DisplayType {
-    /// Text
+    /// Color applies to text.
     Text,
-    /// Background
+    /// Color applies to background.
     Background,
 }
 
-/// Color
+/// Predefined color constants for easy text formatting.
 #[derive(Debug, Clone, PartialEq)]
 pub enum Color {
-    /// Default Color
+    /// Default terminal color.
     Default,
-    /// Black
+    /// Black color.
     Black,
-    /// Red
+    /// Red color.
     Red,
-    /// Green
+    /// Green color.
     Green,
-    /// Yellow
+    /// Yellow color.
     Yellow,
-    /// Blue
+    /// Blue color.
     Blue,
-    /// Magenta
+    /// Magenta color.
     Magenta,
-    /// Cyan
+    /// Cyan color.
     Cyan,
-    /// White
+    /// White color.
     White,
 }
 
+/// Trait for converting colors to their ANSI escape sequences.
 pub(crate) trait ColorDisplay {
-    /// Gets the display string
+    /// Gets the ANSI escape sequence for the color.
     ///
-    /// # Parameters
-    /// - `&Self`: &self
-    /// - `DisplayType`: display_type
+    /// # Arguments
+    ///
+    /// - `&Self` - Reference to self
+    /// - `DisplayType` - Whether to apply to text or background
     ///
     /// # Returns
-    /// - `String`: The displayed string
+    ///
+    /// - `String` - The ANSI escape sequence string
     fn get_str(&self, display_type: DisplayType) -> String;
 }
 

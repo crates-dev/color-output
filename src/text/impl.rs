@@ -3,6 +3,7 @@ use crate::color::{blod::*, r#const::*};
 use crate::*;
 use std::borrow::Cow;
 
+/// Default implementation for Text with empty content and default styling.
 impl<'a> Default for Text<'a> {
     fn default() -> Self {
         Text {
@@ -16,13 +17,15 @@ impl<'a> Default for Text<'a> {
 }
 
 impl<'a> Text<'a> {
-    /// Creates a text structure
+    /// Creates a new Text instance from existing configuration.
     ///
-    /// # Parameters
-    /// - `Text`: The text structure
+    /// # Arguments
+    ///
+    /// - `Text` - Source text configuration to clone
     ///
     /// # Returns
-    /// - `Text`: The text structure
+    ///
+    /// - `Text` - New instance with cloned configuration
     pub(crate) fn new_from(text: &Text<'a>) -> Self {
         Self { ..text.clone() }
     }

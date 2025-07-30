@@ -1,49 +1,18 @@
 use crate::*;
 
-/// Output struct
+/// Represents a colored text output with formatting options.
 ///
-/// [Official Documentation](https://docs.ltpp.vip/COLOR-OUTPUT/),
-///
-/// # Code Example
-///
-/// ## Using the Struct
-///
-/// ### Using the output Function
-///
-/// ```rust
-/// use color_output::*;
-/// output(Output {
-///     text: "test_output_struct",
-///     color: ColorType::Use(Color::Default),
-///     bg_color: ColorType::Color256(0x000000),
-///     endl: true,
-///     ..Default::default()
-/// });
-/// ```
-///
-/// ### Using the output Method
-///
-/// ```rust
-/// use color_output::*;
-/// Output {
-///     text: "test_output_struct_output",
-///     color: ColorType::Use(Color::Default),
-///     bg_color: ColorType::Use(Color::Blue),
-///     endl: true,
-///     ..Default::default()
-/// }
-/// .output();
-/// ```
+/// [Official Documentation](https://docs.ltpp.vip/COLOR-OUTPUT/)
 #[derive(Debug, Clone)]
 pub struct Output<'a> {
-    /// text
+    /// The text content to output.
     pub text: &'a str,
-    /// text color
+    /// The text color.
     pub color: ColorType,
-    /// Text background color
+    /// The background color.
     pub bg_color: ColorType,
-    /// Bold text
+    /// Whether the text should be bold.
     pub blod: bool,
-    /// endl
+    /// Whether to add a newline after the text.
     pub endl: bool,
 }

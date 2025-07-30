@@ -5,10 +5,11 @@ use std::slice::Iter;
 use std::vec;
 
 impl<'a> Default for OutputList<'a> {
-    /// Provides a default implementation for `OutputList`.
+    /// Provides a default implementation for OutputList.
     ///
     /// # Returns
-    /// - `OutputList<'a>`: Returns an `OutputList` containing a default `Output`.
+    ///
+    /// - `OutputList` - New instance containing a single default Output
     fn default() -> Self {
         OutputList(vec![Output::<'a>::default()])
     }
@@ -17,10 +18,11 @@ impl<'a> Default for OutputList<'a> {
 impl<'a> Deref for OutputList<'a> {
     type Target = Vec<Output<'a>>;
 
-    /// Dereferences `OutputList` to its internal `Vec<Output<'a>>`.
+    /// Dereferences OutputList to its internal Vec of Outputs.
     ///
     /// # Returns
-    /// - `&Vec<Output<'a>>`: A reference to the internal vector of outputs.
+    ///
+    /// - `&Vec<Output>` - Reference to the internal vector of outputs
     fn deref(&self) -> &Self::Target {
         &self.0
     }
@@ -30,10 +32,11 @@ impl<'a> IntoIterator for &'a OutputList<'a> {
     type Item = &'a Output<'a>;
     type IntoIter = Iter<'a, Output<'a>>;
 
-    /// Returns an iterator over the elements of the internal `Vec<Output<'a>>`.
+    /// Returns an iterator over the elements of the internal Vec.
     ///
     /// # Returns
-    /// - `Iter<'a, Output<'a>>`: An iterator over references to the `Output` elements.
+    ///
+    /// - `Iter<Output>` - Iterator over references to Output elements
     fn into_iter(self) -> Self::IntoIter {
         self.0.iter()
     }
