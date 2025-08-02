@@ -14,7 +14,7 @@
 
 ## Description
 
-- An atomic output library based on Rust that supports output functionalities through functions, builders, and other methods. It allows customization of text and background colors.
+> An atomic output library based on Rust that supports output functionalities through functions, builders, and other methods. It allows customization of text and background colors.
 
 ## Features
 
