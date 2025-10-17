@@ -7,6 +7,7 @@ impl<'a> OutputBuilder<'a> {
     /// # Returns
     ///
     /// - `OutputBuilder<'a>` - The new builder instance.
+    #[inline(always)]
     pub fn new() -> Self {
         Self {
             output: Output::default(),
@@ -22,6 +23,7 @@ impl<'a> OutputBuilder<'a> {
     /// # Returns
     ///
     /// - `OutputBuilder` - The new builder instance
+    #[inline(always)]
     pub fn new_from(output: Output<'a>) -> Self {
         Self { output }
     }
@@ -35,6 +37,7 @@ impl<'a> OutputBuilder<'a> {
     /// # Returns
     ///
     /// - `&mut Self` - The builder for method chaining
+    #[inline(always)]
     pub fn text(&mut self, text: &'a str) -> &mut Self {
         self.output.text = text;
         self
@@ -49,6 +52,7 @@ impl<'a> OutputBuilder<'a> {
     /// # Returns
     ///
     /// - `&mut Self` - The builder for method chaining
+    #[inline(always)]
     pub fn color(&mut self, color: ColorType) -> &mut Self {
         self.output.color = color;
         self
@@ -63,6 +67,7 @@ impl<'a> OutputBuilder<'a> {
     /// # Returns
     ///
     /// - `&mut Self` - The builder for chaining.
+    #[inline(always)]
     pub fn bg_color(&mut self, bg_color: ColorType) -> &mut Self {
         self.output.bg_color = bg_color;
         self
@@ -77,6 +82,7 @@ impl<'a> OutputBuilder<'a> {
     /// # Returns
     ///
     /// - `&mut Self` - The builder for chaining.
+    #[inline(always)]
     pub fn blod(&mut self, blod: bool) -> &mut Self {
         self.output.blod = blod;
         self
@@ -91,6 +97,7 @@ impl<'a> OutputBuilder<'a> {
     /// # Returns
     ///
     /// - `&mut Self` - The builder for chaining.
+    #[inline(always)]
     pub fn endl(&mut self, endl: bool) -> &mut Self {
         self.output.endl = endl;
         self
@@ -101,7 +108,8 @@ impl<'a> OutputBuilder<'a> {
     /// # Returns
     ///
     /// - `Output<'a>` - The constructed output.
-    pub fn build(&self) -> Output {
+    #[inline(always)]
+    pub fn build(&'_ self) -> Output<'_> {
         self.output.clone()
     }
 
@@ -110,6 +118,7 @@ impl<'a> OutputBuilder<'a> {
     /// # Returns
     ///
     /// - `()` - No return value.
+    #[inline(always)]
     pub fn output(&self) {
         output(self.output.clone());
     }

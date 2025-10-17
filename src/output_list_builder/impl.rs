@@ -6,6 +6,7 @@ impl<'a> OutputListBuilder<'a> {
     /// # Returns
     ///
     /// - `OutputListBuilder` - New instance with empty output list
+    #[inline(always)]
     pub fn new() -> Self {
         Self {
             output_list: vec![],
@@ -21,6 +22,7 @@ impl<'a> OutputListBuilder<'a> {
     /// # Returns
     ///
     /// - `OutputListBuilder` - New instance containing the specified outputs
+    #[inline(always)]
     pub fn new_from(output_list: Vec<Output<'a>>) -> Self {
         Self { output_list }
     }
@@ -34,6 +36,7 @@ impl<'a> OutputListBuilder<'a> {
     /// # Returns
     ///
     /// - `&mut Self` - The builder for method chaining
+    #[inline(always)]
     pub fn add(&mut self, output: Output<'a>) -> &mut Self {
         self.output_list.push(output);
         self
@@ -61,6 +64,7 @@ impl<'a> OutputListBuilder<'a> {
     ///
     /// # Parameters
     /// - `&mut self`: A mutable reference to the current instance of `OutputListBuilder`.
+    #[inline(always)]
     pub fn clear(&mut self) {
         self.output_list.clear();
     }
@@ -90,7 +94,7 @@ impl<'a> OutputListBuilder<'a> {
     ///
     /// # Returns
     /// - `Output`: The output item at the specified index, or a default output if the index is out of bounds.
-    pub fn query_idx(&self, idx: usize) -> Output {
+    pub fn query_idx(&'_ self, idx: usize) -> Output<'_> {
         if idx >= self.output_list.len() {
             return Output::default();
         }

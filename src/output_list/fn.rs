@@ -16,14 +16,11 @@ use task::r#struct::Task;
 pub fn output_list(output_list: &Vec<Output>) {
     let mut task_list: Task<'_> = Task::default();
     for output in output_list {
-        // Text
         let text: &str = output.text;
         let color: ColorType = output.color.clone();
         let bg_color: ColorType = output.bg_color.clone();
         let blod: bool = output.blod.clone();
-        // endl
         let endl: bool = output.endl;
-        // Add text
         task_list.add(Text {
             text,
             color,
@@ -32,6 +29,5 @@ pub fn output_list(output_list: &Vec<Output>) {
             endl,
         });
     }
-    // run
     task_list.run_all();
 }
