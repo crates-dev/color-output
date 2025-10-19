@@ -24,7 +24,7 @@ macro_rules! output_macro {
 #[macro_export]
 macro_rules! __print_message_common {
     ($color:expr, $bg_color:expr, $($data:expr),*) => {{
-        use crate::*;
+        use $crate::*;
         let binding: String = format!("[{}]", time());
         let mut time_output_builder: OutputBuilder<'_> = OutputBuilder::new();
         let time_output: Output<'_> = time_output_builder
@@ -57,7 +57,7 @@ macro_rules! __print_message_common {
 #[macro_export]
 macro_rules! println_success {
     ($($data:expr),*) => {
-        crate::__print_message_common!(ColorType::Use(Color::White), ColorType::Use(Color::Green), $($data),*);
+        $crate::__print_message_common!(ColorType::Use(Color::White), ColorType::Use(Color::Green), $($data),*);
     };
 }
 
@@ -65,7 +65,7 @@ macro_rules! println_success {
 #[macro_export]
 macro_rules! println_warning {
     ($($data:expr),*) => {
-        crate::__print_message_common!(ColorType::Use(Color::White), ColorType::Use(Color::Yellow), $($data),*);
+        $crate::__print_message_common!(ColorType::Use(Color::White), ColorType::Use(Color::Yellow), $($data),*);
     };
 }
 
@@ -73,6 +73,6 @@ macro_rules! println_warning {
 #[macro_export]
 macro_rules! println_error {
     ($($data:expr),*) => {
-        crate::__print_message_common!(ColorType::Use(Color::White), ColorType::Use(Color::Red), $($data),*);
+        $crate::__print_message_common!(ColorType::Use(Color::White), ColorType::Use(Color::Red), $($data),*);
     };
 }

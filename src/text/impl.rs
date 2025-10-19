@@ -40,7 +40,7 @@ impl<'a> Text<'a> {
     /// - `Cow<'a, str>`: An owned copy of the formatted string.
     pub(crate) fn get_display_str_cow(&self) -> Cow<'a, str> {
         let text: &str = self.text;
-        let blod: bool = self.blod.clone();
+        let blod: bool = self.blod;
 
         let adjusted_color: ColorType = if matches!(self.color, ColorType::Use(Color::Default)) {
             ColorContrast::ensure_sufficient_contrast(&self.color, &self.bg_color)
@@ -55,7 +55,7 @@ impl<'a> Text<'a> {
             format!("{}{}{}{}", bg_color, color, text, RESET)
         };
         if self.endl {
-            colored_text.push_str("\n");
+            colored_text.push('\n');
         }
         Cow::Owned(colored_text)
     }

@@ -21,9 +21,10 @@ pub(crate) enum DisplayType {
 }
 
 /// Predefined color constants for easy text formatting.
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, Default)]
 pub enum Color {
     /// Default terminal color.
+    #[default]
     Default,
     /// Black color.
     Black,
@@ -56,12 +57,6 @@ pub(crate) trait ColorDisplay {
     ///
     /// - `String` - The ANSI escape sequence string
     fn get_str(&self, display_type: DisplayType) -> String;
-}
-
-impl Default for Color {
-    fn default() -> Self {
-        Color::Default
-    }
 }
 
 impl ColorDisplay for Color {

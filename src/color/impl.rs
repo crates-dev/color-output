@@ -169,9 +169,9 @@ impl ColorContrast {
     fn lighten_color_for_contrast(text_rgb: (u8, u8, u8), bg_rgb: (u8, u8, u8)) -> ColorType {
         let (r, g, b): (u8, u8, u8) = text_rgb;
         let scale_factor: f64 = 2.5;
-        let new_r: u8 = ((r as f64 * scale_factor) as u8).min(255).max(200);
-        let new_g: u8 = ((g as f64 * scale_factor) as u8).min(255).max(200);
-        let new_b: u8 = ((b as f64 * scale_factor) as u8).min(255).max(200);
+        let new_r: u8 = ((r as f64 * scale_factor) as u8).max(200);
+        let new_g: u8 = ((g as f64 * scale_factor) as u8).max(200);
+        let new_b: u8 = ((b as f64 * scale_factor) as u8).max(200);
         let result_color: ColorType = ColorType::Rgb(new_r, new_g, new_b);
         if Self::calculate_contrast_ratio((new_r, new_g, new_b), bg_rgb) >= 4.5 {
             result_color

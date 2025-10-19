@@ -1,5 +1,11 @@
 use crate::*;
 
+impl<'a> Default for OutputListBuilder<'a> {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl<'a> OutputListBuilder<'a> {
     /// Creates a new empty OutputListBuilder.
     ///

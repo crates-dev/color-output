@@ -19,7 +19,7 @@ pub fn output_list(output_list: &Vec<Output>) {
         let text: &str = output.text;
         let color: ColorType = output.color.clone();
         let bg_color: ColorType = output.bg_color.clone();
-        let blod: bool = output.blod.clone();
+        let blod: bool = output.blod;
         let endl: bool = output.endl;
         task_list.add(Text {
             text,

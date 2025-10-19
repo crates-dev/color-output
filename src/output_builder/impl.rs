@@ -1,6 +1,12 @@
 use crate::*;
 
 /// Implementation of OutputBuilder methods.
+impl<'a> Default for OutputBuilder<'a> {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl<'a> OutputBuilder<'a> {
     /// Creates a new OutputBuilder instance.
     ///

@@ -11,7 +11,7 @@ pub fn output(output: Output) {
     let text: &str = output.text;
     let color: ColorType = output.color.clone();
     let bg_color: ColorType = output.bg_color.clone();
-    let blod: bool = output.blod.clone();
+    let blod: bool = output.blod;
     let endl: bool = output.endl;
     let mut task_list: Task<'_> = Task::default();
     task_list.add(Text {
