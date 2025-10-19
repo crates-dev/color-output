@@ -18,12 +18,12 @@ macro_rules! output_macro {
 ///
 /// - `ColorType` - Text color
 /// - `ColorType` - Background color
-/// - `&str` - One or more message strings to print
+/// - Format string and arguments (same as `format!` macro)
 ///
 /// Used by the success/warning/error printing macros to avoid code duplication.
 #[macro_export]
 macro_rules! __print_message_common {
-    ($color:expr, $bg_color:expr, $($data:expr),*) => {{
+    ($color:expr, $bg_color:expr, $($arg:tt)*) => {{
         use $crate::*;
         let binding: String = format!("[{}]", time());
         let mut time_output_builder: OutputBuilder<'_> = OutputBuilder::new();
@@ -34,10 +34,7 @@ macro_rules! __print_message_common {
             .bg_color($bg_color)
             .build();
         let mut text_output_builder: OutputBuilder<'_> = OutputBuilder::new();
-        let mut text: String = String::new();
-        $(
-            text.push_str(&$data.to_string());
-        )*
+        let text: String = format!($($arg)*);
         let mut lines_iter = text.lines().peekable();
         while let Some(line) = lines_iter.next() {
             let mut output_list_builder = OutputListBuilder::new();
@@ -54,25 +51,40 @@ macro_rules! __print_message_common {
 }
 
 /// Prints a success message with green background and white text.
+///
+/// Supports format string syntax like `format!` macro:
+/// - `println_success!("Hello")` - Simple string
+/// - `println_success!("Hello {}", name)` - Positional arguments
+/// - `println_success!("Hello {name}")` - Named arguments (Rust 1.58+)
 #[macro_export]
 macro_rules! println_success {
-    ($($data:expr),*) => {
-        $crate::__print_message_common!(ColorType::Use(Color::White), ColorType::Use(Color::Green), $($data),*);
+    ($($arg:tt)*) => {
+        $crate::__print_message_common!(ColorType::Use(Color::White), ColorType::Use(Color::Green), $($arg)*);
     };
 }
 
 /// Prints a warning message with yellow background and white text.
+///
+/// Supports format string syntax like `format!` macro:
+/// - `println_warning!("Warning")` - Simple string
+/// - `println_warning!("Warning: {}", error)` - Positional arguments
+/// - `println_warning!("Warning: {error}")` - Named arguments (Rust 1.58+)
 #[macro_export]
 macro_rules! println_warning {
-    ($($data:expr),*) => {
-        $crate::__print_message_common!(ColorType::Use(Color::White), ColorType::Use(Color::Yellow), $($data),*);
+    ($($arg:tt)*) => {
+        $crate::__print_message_common!(ColorType::Use(Color::White), ColorType::Use(Color::Yellow), $($arg)*);
     };
 }
 
 /// Prints an error message with red background and white text.
+///
+/// Supports format string syntax like `format!` macro:
+/// - `println_error!("Error")` - Simple string
+/// - `println_error!("Error: {}", message)` - Positional arguments
+/// - `println_error!("Error: {message}")` - Named arguments (Rust 1.58+)
 #[macro_export]
 macro_rules! println_error {
-    ($($data:expr),*) => {
-        $crate::__print_message_common!(ColorType::Use(Color::White), ColorType::Use(Color::Red), $($data),*);
+    ($($arg:tt)*) => {
+        $crate::__print_message_common!(ColorType::Use(Color::White), ColorType::Use(Color::Red), $($arg)*);
     };
 }

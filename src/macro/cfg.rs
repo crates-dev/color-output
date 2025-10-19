@@ -53,17 +53,17 @@ fn test_proc_macro_multiple() {
 fn test_print_type() {
     use crate::*;
     let msg: &str = "1\n2\n3\r\n4";
-    println_success!(msg);
+    println_success!("{msg}");
     println!("==========");
-    println_warning!(msg);
+    println_warning!("{msg}");
     println!("==========");
-    println_error!(msg);
+    println_error!("{msg}");
     println!("==========");
     let msg: &str = "1234";
-    println_success!(msg, msg);
+    println_success!("{msg}{msg}");
     println!("==========");
-    println_warning!(msg, msg);
+    println_warning!("{msg}{msg}");
     println!("==========");
-    println_error!(msg, msg);
+    println_error!("{msg}{msg}");
     println!("==========");
 }
