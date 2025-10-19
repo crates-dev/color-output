@@ -50,9 +50,9 @@ impl<'a> Text<'a> {
         let color: &String = &adjusted_color.to_string();
         let bg_color: &String = &self.bg_color.get_str(DisplayType::Background);
         let mut colored_text: String = if blod {
-            format!("{}{}{}{}{}{}", bg_color, color, BLOD, text, UNBLOD, RESET)
+            format!("{bg_color}{color}{BLOD}{text}{UNBLOD}{RESET}")
         } else {
-            format!("{}{}{}{}", bg_color, color, text, RESET)
+            format!("{bg_color}{color}{text}{RESET}")
         };
         if self.endl {
             colored_text.push('\n');

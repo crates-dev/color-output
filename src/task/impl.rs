@@ -50,7 +50,7 @@ impl<'a> Task<'a> {
             let colored_time: &Cow<'_, str> = &Text::new_from(&text).get_display_str_cow();
             output_str.push_str(colored_time);
         }
-        print!("{}", output_str);
+        print!("{output_str}");
         std::io::stdout().flush().unwrap();
         self
     }
