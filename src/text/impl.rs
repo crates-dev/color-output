@@ -5,6 +5,7 @@ use std::borrow::Cow;
 
 /// Default implementation for Text with empty content and default styling.
 impl<'a> Default for Text<'a> {
+    #[inline(always)]
     fn default() -> Self {
         Text {
             text: "",
@@ -26,6 +27,7 @@ impl<'a> Text<'a> {
     /// # Returns
     ///
     /// - `Text` - New instance with cloned configuration
+    #[inline(always)]
     pub(crate) fn new_from(text: &Text<'a>) -> Self {
         Self { ..text.clone() }
     }

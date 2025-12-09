@@ -2,6 +2,7 @@ use crate::*;
 
 /// Default implementation for Task with empty text list.
 impl<'a> Default for Task<'a> {
+    #[inline(always)]
     fn default() -> Self {
         Self { text_list: vec![] }
     }
@@ -18,6 +19,7 @@ impl<'a> Task<'a> {
     /// # Returns
     ///
     /// - `&mut Self` - The task for method chaining
+    #[inline(always)]
     pub(crate) fn add(&mut self, new_text: Text<'a>) -> &mut Self {
         self.text_list.push(new_text);
         self
@@ -28,6 +30,7 @@ impl<'a> Task<'a> {
     /// # Returns
     ///
     /// - `&mut Self` - The cleared task for method chaining
+    #[inline(always)]
     pub(crate) fn clear(&mut self) -> &mut Self {
         self.text_list.clear();
         self

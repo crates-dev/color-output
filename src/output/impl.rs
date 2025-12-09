@@ -2,6 +2,7 @@ use crate::*;
 
 /// Default implementation for Output with empty configuration.
 impl<'a> Default for Output<'a> {
+    #[inline(always)]
     fn default() -> Self {
         Output {
             text: "",

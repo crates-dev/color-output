@@ -1,6 +1,6 @@
 [package]
 name = "color-output"
-version = "8.1.0"
+version = "8.1.1"
 readme = "README.md"
 edition = "2024"
 authors = ["root@ltpp.vip"]
@@ -17,7 +17,7 @@ exclude = [
 ]
 
 [dependencies]
-hyperlane-time = "0.7.12"
+hyperlane-time = "0.7.13"
 
 [profile.dev]
 incremental = false
