@@ -46,12 +46,10 @@ impl<'a> Task<'a> {
     ///
     /// - `&mut Self` - The task instance after execution.
     pub(crate) fn run_all(&mut self) -> &mut Self {
-        let copy_task_list: Vec<Text<'a>> = self.text_list.clone();
         self.clear();
-        let mut output_str: String = String::new();
-        for text in copy_task_list {
-            let colored_time: &Cow<'_, str> = &Text::new_from(&text).get_display_str_cow();
-            output_str.push_str(colored_time);
+        let mut output_str: String = String::with_capacity(self.text_list.len());
+        for text in self.text_list.iter() {
+            output_str.push_str(&Text::new_from(text).get_display_str_cow());
         }
         print!("{output_str}");
         std::io::stdout().flush().unwrap();

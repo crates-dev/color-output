@@ -87,9 +87,8 @@ impl<'a> OutputListBuilder<'a> {
     /// The method clones the current output list, clears the original list, and executes
     /// the output for each cloned item.
     pub fn run(&mut self) -> &mut Self {
-        let output_list_clone: Vec<Output<'a>> = self.output_list.clone();
         self.clear();
-        output_list(&output_list_clone.to_vec());
+        output_list(&self.output_list.to_vec());
         self
     }
 

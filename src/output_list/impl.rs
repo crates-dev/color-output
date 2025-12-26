@@ -58,7 +58,6 @@ impl<'a> OutputList<'a> {
     /// # Returns
     /// - `()` : Nothing is returned.
     pub fn output(self) {
-        let output_list_clone: OutputList<'a> = self.clone();
-        output_list(&output_list_clone.to_vec());
+        output_list(&self.to_vec());
     }
 }
