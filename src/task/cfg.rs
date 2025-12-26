@@ -10,5 +10,5 @@ fn test_task() {
         ..Text::default()
     });
     task.run_all();
-    println!("{:?}", task);
+    println!("{task:?}");
 }

@@ -1,8 +1,4 @@
-use super::r#fn::output_list;
 use crate::*;
-use std::ops::Deref;
-use std::slice::Iter;
-use std::vec;
 
 impl<'a> Default for OutputList<'a> {
     /// Provides a default implementation for OutputList.

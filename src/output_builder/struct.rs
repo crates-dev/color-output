@@ -1,8 +1,7 @@
 use crate::*;
 
 /// Builder pattern for constructing Output configurations.
-///
-/// [Official Documentation](https://docs.ltpp.vip/COLOR-OUTPUT/)
+#[derive(Debug, Copy, Clone, PartialEq, Eq)]
 pub struct OutputBuilder<'a> {
     /// The Output configuration being built.
     pub output: Output<'a>,

@@ -1,5 +1,69 @@
 use crate::*;
 
+impl ColorDisplay for Color {
+    fn get_str(&self, display_type: DisplayType) -> String {
+        let str: &str = match display_type {
+            DisplayType::Text => match self {
+                Color::Red => RED,
+                Color::Green => GREEN,
+                Color::Blue => BLUE,
+                Color::Yellow => YELLOW,
+                Color::Black => BLACK,
+                Color::White => WHITE,
+                Color::Default => DEFAULT,
+                Color::Magenta => MAGENTA,
+                Color::Cyan => CYAN,
+            },
+            DisplayType::Background => match self {
+                Color::Red => BG_RED,
+                Color::Green => BG_GREEN,
+                Color::Blue => BG_BLUE,
+                Color::Yellow => BG_YELLOW,
+                Color::Black => BG_BLACK,
+                Color::White => BG_WHITE,
+                Color::Default => DEFAULT,
+                Color::Magenta => BG_MAGENTA,
+                Color::Cyan => BG_CYAN,
+            },
+        };
+        str.to_string()
+    }
+}
+
+impl Display for Color {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "{}", self.get_str(DisplayType::Text))
+    }
+}
+
+impl Display for ColorType {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "{}", self.get_str(DisplayType::Text))
+    }
+}
+
+impl ColorDisplay for ColorType {
+    fn get_str(&self, display_type: DisplayType) -> String {
+        match self {
+            ColorType::Color256(fg) => match display_type {
+                DisplayType::Text => color256_fg_color(*fg),
+                DisplayType::Background => color256_bg_color(*fg),
+            },
+            ColorType::Rgb(r, g, b) => match display_type {
+                DisplayType::Text => rgb_fg_color(*r, *g, *b),
+                DisplayType::Background => rgb_bg_color(*r, *g, *b),
+            },
+            ColorType::Use(color) => color.get_str(display_type),
+        }
+    }
+}
+
+impl Default for ColorType {
+    fn default() -> Self {
+        ColorType::Use(Color::Default)
+    }
+}
+
 impl ColorContrast {
     /// Calculates the relative luminance of a color.
     ///
@@ -71,7 +135,7 @@ impl ColorContrast {
                 (r, g, b)
             }
             ColorType::Use(color) => {
-                use super::r#type::Color;
+                use super::r#enum::Color;
                 match color {
                     Color::Default => (128, 128, 128),
                     Color::Black => (0, 0, 0),
@@ -116,7 +180,7 @@ impl ColorContrast {
     /// - `ColorType` - Adjusted text color with sufficient contrast
     pub fn ensure_sufficient_contrast(text_color: &ColorType, bg_color: &ColorType) -> ColorType {
         if Self::has_sufficient_contrast(text_color, bg_color) {
-            return text_color.clone();
+            return *text_color;
         }
         let text_rgb: (u8, u8, u8) = Self::extract_rgb_from_color_type(text_color);
         let bg_rgb: (u8, u8, u8) = Self::extract_rgb_from_color_type(bg_color);

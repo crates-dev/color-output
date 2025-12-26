@@ -117,7 +117,7 @@ impl<'a> OutputBuilder<'a> {
     /// - `Output<'a>` - The constructed output.
     #[inline(always)]
     pub fn build(&'_ self) -> Output<'_> {
-        self.output.clone()
+        self.output
     }
 
     /// Outputs the current state.
@@ -127,6 +127,6 @@ impl<'a> OutputBuilder<'a> {
     /// - `()` - No return value.
     #[inline(always)]
     pub fn output(&self) {
-        output(self.output.clone());
+        output(self.output);
     }
 }

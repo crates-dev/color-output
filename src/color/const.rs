@@ -51,3 +51,9 @@ pub const BG_CYAN: &str = "\x1b[46m";
 
 /// ANSI escape code for white background.
 pub const BG_WHITE: &str = "\x1b[47m";
+
+/// ANSI escape code for bold text formatting.
+pub const BLOD: &str = "\x1b[1m";
+
+/// ANSI escape code to reset bold text formatting.
+pub const UNBLOD: &str = "\x1b[22m";

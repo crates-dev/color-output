@@ -6,48 +6,8 @@
 #[macro_export]
 macro_rules! output_macro {
     ($($output:expr),*) => {
-        $(
-            $output.output();
-        )*
+        $($output.output();)*
     };
-}
-
-/// Internal macro for handling common message printing logic.
-///
-/// # Arguments
-///
-/// - `ColorType` - Text color
-/// - `ColorType` - Background color
-/// - Format string and arguments (same as `format!` macro)
-///
-/// Used by the success/warning/error printing macros to avoid code duplication.
-#[macro_export]
-macro_rules! __print_message_common {
-    ($color:expr, $bg_color:expr, $($arg:tt)*) => {{
-        use $crate::*;
-        let binding: String = format!("[{}]", time());
-        let mut time_output_builder: OutputBuilder<'_> = OutputBuilder::new();
-        let time_output: Output<'_> = time_output_builder
-            .text(&binding)
-            .blod(true)
-            .color($color)
-            .bg_color($bg_color)
-            .build();
-        let mut text_output_builder: OutputBuilder<'_> = OutputBuilder::new();
-        let text: String = format!($($arg)*);
-        let mut lines_iter = text.lines().peekable();
-        while let Some(line) = lines_iter.next() {
-            let mut output_list_builder = OutputListBuilder::new();
-            output_list_builder.add(time_output.clone());
-            let text_output: Output<'_> = text_output_builder
-                .text(&line)
-                .blod(true)
-                .endl(true)
-                .build();
-            output_list_builder.add(text_output);
-            output_list_builder.run();
-        }
-    }};
 }
 
 /// Prints a success message with green background and white text.
@@ -59,7 +19,7 @@ macro_rules! __print_message_common {
 #[macro_export]
 macro_rules! println_success {
     ($($arg:tt)*) => {
-        $crate::__print_message_common!(ColorType::Use(Color::White), ColorType::Use(Color::Green), $($arg)*);
+        $crate::__println_text(ColorType::Use(Color::White), ColorType::Use(Color::Green), &format!($($arg)*));
     };
 }
 
@@ -72,7 +32,7 @@ macro_rules! println_success {
 #[macro_export]
 macro_rules! println_warning {
     ($($arg:tt)*) => {
-        $crate::__print_message_common!(ColorType::Use(Color::White), ColorType::Use(Color::Yellow), $($arg)*);
+        $crate::__println_text(ColorType::Use(Color::White), ColorType::Use(Color::Yellow), &format!($($arg)*));
     };
 }
 
@@ -85,6 +45,6 @@ macro_rules! println_warning {
 #[macro_export]
 macro_rules! println_error {
     ($($arg:tt)*) => {
-        $crate::__print_message_common!(ColorType::Use(Color::White), ColorType::Use(Color::Red), $($arg)*);
+        $crate::__println_text(ColorType::Use(Color::White), ColorType::Use(Color::Red), &format!($($arg)*));
     };
 }

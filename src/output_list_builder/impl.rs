@@ -105,7 +105,7 @@ impl<'a> OutputListBuilder<'a> {
         if idx >= self.output_list.len() {
             return Output::default();
         }
-        self.output_list[idx].clone()
+        self.output_list[idx]
     }
 
     /// Runs the output item at the specified index.

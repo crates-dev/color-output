@@ -1,7 +1,4 @@
-use super::r#struct::*;
-use crate::color::{blod::*, r#const::*};
 use crate::*;
-use std::borrow::Cow;
 
 /// Default implementation for Text with empty content and default styling.
 impl<'a> Default for Text<'a> {
@@ -29,7 +26,7 @@ impl<'a> Text<'a> {
     /// - `Text` - New instance with cloned configuration
     #[inline(always)]
     pub(crate) fn new_from(text: &Text<'a>) -> Self {
-        Self { ..text.clone() }
+        Self { ..*text }
     }
 
     /// Gets the display string as a `Cow` (clone on write).
@@ -47,7 +44,7 @@ impl<'a> Text<'a> {
         let adjusted_color: ColorType = if matches!(self.color, ColorType::Use(Color::Default)) {
             ColorContrast::ensure_sufficient_contrast(&self.color, &self.bg_color)
         } else {
-            self.color.clone()
+            self.color
         };
         let color: &String = &adjusted_color.to_string();
         let bg_color: &String = &self.bg_color.get_str(DisplayType::Background);
