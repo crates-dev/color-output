@@ -20,6 +20,7 @@ impl<'a> Output<'a> {
     /// # Returns
     ///
     /// - `()` - No return value
+    #[inline(always)]
     pub fn output(self) {
         output(self);
     }

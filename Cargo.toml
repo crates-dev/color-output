@@ -1,6 +1,6 @@
 [package]
 name = "color-output"
-version = "8.2.0"
+version = "8.2.1"
 readme = "README.md"
 edition = "2024"
 authors = ["root@ltpp.vip"]
