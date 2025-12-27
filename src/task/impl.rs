@@ -46,9 +46,10 @@ impl<'a> Task<'a> {
     ///
     /// - `&mut Self` - The task instance after execution.
     pub(crate) fn run_all(&mut self) -> &mut Self {
+        let text_list: Vec<Text<'_>> = self.text_list.clone();
         self.clear();
-        let mut output_str: String = String::with_capacity(self.text_list.len());
-        for text in self.text_list.iter() {
+        let mut output_str: String = String::with_capacity(text_list.len());
+        for text in text_list.iter() {
             output_str.push_str(&Text::new_from(text).get_display_str_cow());
         }
         print!("{output_str}");
