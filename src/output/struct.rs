@@ -1,7 +1,7 @@
 use crate::*;
 
 /// Represents a colored text output with formatting options.
-#[derive(Debug, Copy, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct Output<'a> {
     /// The text content to output.
     pub text: &'a str,

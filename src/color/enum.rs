@@ -1,5 +1,5 @@
 /// Represents different types of colors that can be used for text formatting.
-#[derive(Debug, Copy, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum ColorType {
     /// RGB color with red, green and blue components.
     Rgb(u8, u8, u8),
@@ -10,7 +10,7 @@ pub enum ColorType {
 }
 
 /// Specifies whether color applies to text or background.
-#[derive(Debug, Copy, Clone, PartialEq, Eq, Default)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 pub(crate) enum DisplayType {
     /// Color applies to text.
     #[default]
@@ -20,7 +20,7 @@ pub(crate) enum DisplayType {
 }
 
 /// Predefined color constants for easy text formatting.
-#[derive(Debug, Copy, Clone, PartialEq, Eq, Default)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 pub enum Color {
     /// Default terminal color.
     #[default]

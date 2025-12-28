@@ -3,7 +3,7 @@ use crate::*;
 /// Configurable text display with color, background and style options.
 ///
 /// Used for building formatted console output with various display attributes.
-#[derive(Debug, Copy, Clone, PartialEq)]
+#[derive(Debug, Clone, Copy, PartialEq)]
 pub(crate) struct Text<'a> {
     /// The actual text content.
     pub(crate) text: &'a str,
