@@ -21,4 +21,13 @@ fn test_output_struct_output_method() {
         ..Default::default()
     }
     .output();
+
+    Output {
+        text: "test_output_struct_output",
+        color: ColorType::Use(Color::White),
+        bg_color: ColorType::Use(Color::Blue),
+        endl: true,
+        ..Default::default()
+    }
+    .output();
 }

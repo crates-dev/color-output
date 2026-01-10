@@ -90,8 +90,8 @@ impl<'a> OutputBuilder<'a> {
     ///
     /// - `&mut Self` - The builder for chaining.
     #[inline(always)]
-    pub fn blod(&mut self, blod: bool) -> &mut Self {
-        self.output.blod = blod;
+    pub fn bold(&mut self, bold: bool) -> &mut Self {
+        self.output.bold = bold;
         self
     }
 

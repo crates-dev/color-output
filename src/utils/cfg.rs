@@ -17,7 +17,7 @@ fn test_proc_macro_output_builder() {
         OutputBuilder::new()
             .text("test_output_builder")
             .color(ColorType::Use(Color::Cyan))
-            .blod(true)
+            .bold(true)
             .endl(true)
             .build()
     );
@@ -37,15 +37,22 @@ fn test_proc_macro_multiple() {
         OutputBuilder::new()
             .text("test_output_builder1")
             .color(ColorType::Color256(0xffffff))
-            .blod(true)
+            .bold(true)
             .endl(true)
             .build(),
         OutputBuilder::new()
             .text("test_output_builder2")
             .color(ColorType::Color256(0xffffff))
-            .blod(true)
+            .bold(true)
             .endl(true)
-            .build()
+            .build(),
+        Output {
+            text: "test_proc_macro",
+            color: ColorType::default(),
+            bg_color: ColorType::Use(Color::Yellow),
+            endl: true,
+            ..Default::default()
+        }
     );
 }
 

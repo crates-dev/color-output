@@ -10,7 +10,7 @@ pub struct Output<'a> {
     /// The background color.
     pub bg_color: ColorType,
     /// Whether the text should be bold.
-    pub blod: bool,
+    pub bold: bool,
     /// Whether to add a newline after the text.
     pub endl: bool,
 }

@@ -8,7 +8,7 @@ impl<'a> Default for Text<'a> {
             text: "",
             color: ColorType::default(),
             bg_color: ColorType::default(),
-            blod: false,
+            bold: false,
             endl: false,
         }
     }
@@ -39,17 +39,16 @@ impl<'a> Text<'a> {
     /// - `Cow<'a, str>`: An owned copy of the formatted string.
     pub(crate) fn get_display_str_cow(&self) -> Cow<'a, str> {
         let text: &str = self.text;
-        let blod: bool = self.blod;
-
+        let bold: bool = self.bold;
         let adjusted_color: ColorType = if matches!(self.color, ColorType::Use(Color::Default)) {
             ColorContrast::ensure_sufficient_contrast(&self.color, &self.bg_color)
         } else {
             self.color
         };
-        let color: &String = &adjusted_color.to_string();
-        let bg_color: &String = &self.bg_color.get_str(DisplayType::Background);
-        let mut colored_text: String = if blod {
-            format!("{bg_color}{color}{BLOD}{text}{UNBLOD}{RESET}")
+        let color: String = adjusted_color.to_string();
+        let bg_color: String = self.bg_color.get_str(DisplayType::Background);
+        let mut colored_text: String = if bold {
+            format!("{bg_color}{color}{BOLD}{text}{RESET}")
         } else {
             format!("{bg_color}{color}{text}{RESET}")
         };

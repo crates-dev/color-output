@@ -8,7 +8,7 @@ impl<'a> Default for Output<'a> {
             text: "",
             color: ColorType::default(),
             bg_color: ColorType::default(),
-            blod: false,
+            bold: false,
             endl: false,
         }
     }

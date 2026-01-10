@@ -12,7 +12,7 @@ pub(crate) struct Text<'a> {
     /// The background color of the text.
     pub(crate) bg_color: ColorType,
     /// Whether the text should be bold.
-    pub(crate) blod: bool,
+    pub(crate) bold: bool,
     /// Whether to add newline after the text
     pub(crate) endl: bool,
 }

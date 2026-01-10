@@ -8,7 +8,7 @@ fn test_text() {
         text: "",
         color: ColorType::default(),
         bg_color: ColorType::default(),
-        blod: false,
+        bold: false,
         endl: false,
     };
     let text_str: &String = &text.get_display_str_cow().into_owned();
