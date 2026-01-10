@@ -1,4 +1,4 @@
-/// Generates an ANSI escape sequence for foreground colors in 256 colors.
+/// Generates color code for foreground colors in 256 colors.
 ///
 /// # Arguments
 ///
@@ -6,7 +6,7 @@
 ///
 /// # Returns
 ///
-/// - `String` - ANSI escape sequence for the foreground color
+/// - `String` - Color code for the foreground color
 pub fn color256_fg_color(code: u32) -> String {
     if code > 0xFFFFFF {
         return String::new();
@@ -18,7 +18,7 @@ pub fn color256_fg_color(code: u32) -> String {
     format!("38;5;{color_index}")
 }
 
-/// Generates an ANSI escape sequence for background colors in 256 colors.
+/// Generates color code for background colors in 256 colors.
 ///
 /// # Arguments
 ///
@@ -26,7 +26,7 @@ pub fn color256_fg_color(code: u32) -> String {
 ///
 /// # Returns
 ///
-/// - `String` - ANSI escape sequence for the background color
+/// - `String` - Color code for the background color
 pub fn color256_bg_color(code: u32) -> String {
     if code > 0xFFFFFF {
         return String::new();
@@ -38,7 +38,7 @@ pub fn color256_bg_color(code: u32) -> String {
     format!("48;5;{color_index}")
 }
 
-/// Generates an ANSI escape sequence for true color foreground colors.
+/// Generates color code for true color foreground colors.
 ///
 /// # Arguments
 ///
@@ -48,13 +48,13 @@ pub fn color256_bg_color(code: u32) -> String {
 ///
 /// # Returns
 ///
-/// - `String` - ANSI escape sequence for the true color foreground
+/// - `String` - Color code for the true color foreground
 #[inline(always)]
 pub fn rgb_fg_color(r: u8, g: u8, b: u8) -> String {
     format!("38;2;{r};{g};{b}")
 }
 
-/// Generates an ANSI escape sequence for true color background colors.
+/// Generates color code for true color background colors.
 ///
 /// # Arguments
 ///
@@ -64,7 +64,7 @@ pub fn rgb_fg_color(r: u8, g: u8, b: u8) -> String {
 ///
 /// # Returns
 ///
-/// - `String` - ANSI escape sequence for the true color background
+/// - `String` - Color code for the true color background
 #[inline(always)]
 pub fn rgb_bg_color(r: u8, g: u8, b: u8) -> String {
     format!("48;2;{r};{g};{b}")
