@@ -48,12 +48,12 @@ impl<'a> Text<'a> {
         let color: String = adjusted_color.to_string();
         let bg_color: String = self.bg_color.get_str(DisplayType::Background);
         let mut colored_text: String = if bold {
-            format!("{bg_color}{color}{BOLD}{text}{RESET}")
+            format!("{CSI}{SGR_BOLD}{SEMICOLON}{bg_color}{SEMICOLON}{color}{SGR}{text}{SGR_RESET}")
         } else {
-            format!("{bg_color}{color}{text}{RESET}")
+            format!("{CSI}{bg_color}{SEMICOLON}{color}{SGR}{text}{SGR_RESET}")
         };
         if self.endl {
-            colored_text.push('\n');
+            colored_text.push(LINE_FEED);
         }
         Cow::Owned(colored_text)
     }

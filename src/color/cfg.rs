@@ -37,7 +37,7 @@ fn test_color256_fg_color() {
     use crate::*;
     use color::r#fn::color256_fg_color;
     let color_str: String = color256_fg_color(0x3f3f3f);
-    let ans_color_str: String = format!("\x1b[38;5;{}m", 237);
+    let ans_color_str: String = format!("38;5;{}", 237);
     assert_eq!(color_str, ans_color_str);
 }
 
@@ -46,7 +46,7 @@ fn test_color256_bg_color() {
     use crate::*;
     use color::r#fn::color256_bg_color;
     let color_str: String = color256_bg_color(0x000000);
-    let ans_color_str: String = format!("\x1b[48;5;{}m", 16);
+    let ans_color_str: String = format!("48;5;{}", 16);
     assert_eq!(color_str, ans_color_str);
 }
 
@@ -55,7 +55,7 @@ fn test_rgb_fg_color() {
     use crate::*;
     use color::r#fn::rgb_fg_color;
     let color_str: String = rgb_fg_color(255, 255, 255);
-    let ans_color_str: String = format!("\x1b[38;2;{};{};{}m", 255, 255, 255);
+    let ans_color_str: String = format!("38;2;{};{};{}", 255, 255, 255);
     assert_eq!(color_str, ans_color_str);
 }
 
@@ -64,6 +64,6 @@ fn test_rgb_bg_color() {
     use crate::*;
     use color::r#fn::rgb_bg_color;
     let color_str: String = rgb_bg_color(0, 0, 0);
-    let ans_color_str: String = format!("\x1b[48;2;{};{};{}m", 0, 0, 0);
+    let ans_color_str: String = format!("48;2;{};{};{}", 0, 0, 0);
     assert_eq!(color_str, ans_color_str);
 }

@@ -1,56 +1,68 @@
 /// Default color (no formatting).
-pub const DEFAULT: &str = "";
+pub(crate) const DEFAULT: &str = "";
 
-/// Reset all formatting to default.
-pub const RESET: &str = "\x1b[0m";
+/// Semicolon separator used in CSI parameter lists.
+pub(crate) const SEMICOLON: char = ';';
+
+/// Control Sequence Introducer (CSI), starts an ANSI escape sequence.
+pub(crate) const CSI: &str = "\x1b[";
+
+/// Select Graphic Rendition (SGR) final byte.
+pub(crate) const SGR: char = 'm';
+
+/// Reset all graphic rendition attributes.
+pub(crate) const SGR_RESET: &str = "\x1b[0m";
+
+/// SGR parameter: bold or increased intensity.
+pub(crate) const SGR_BOLD: &str = "1";
+
+/// Line feed character.
+pub(crate) const LINE_FEED: char = '\n';
 
 /// ANSI escape code for black text.
-pub const BLACK: &str = "\x1b[30m";
+pub(crate) const BLACK: &str = "30";
 
 /// ANSI escape code for red text.
-pub const RED: &str = "\x1b[31m";
+pub(crate) const RED: &str = "31";
 
 /// ANSI escape code for green text.
-pub const GREEN: &str = "\x1b[32m";
+pub(crate) const GREEN: &str = "32";
 
 /// ANSI escape code for yellow text.
-pub const YELLOW: &str = "\x1b[33m";
+pub(crate) const YELLOW: &str = "33";
 
 /// ANSI escape code for blue text.
-pub const BLUE: &str = "\x1b[34m";
+pub(crate) const BLUE: &str = "34";
 
 /// ANSI escape code for magenta text.
-pub const MAGENTA: &str = "\x1b[35m";
+pub(crate) const MAGENTA: &str = "35";
 
 /// ANSI escape code for cyan text.
-pub const CYAN: &str = "\x1b[36m";
+pub(crate) const CYAN: &str = "36";
 
 /// ANSI escape code for white text.
-pub const WHITE: &str = "\x1b[37m";
+pub(crate) const WHITE: &str = "37";
 
 /// ANSI escape code for black background.
-pub const BG_BLACK: &str = "\x1b[40m";
+pub(crate) const BG_BLACK: &str = "40";
 
 /// ANSI escape code for red background.
-pub const BG_RED: &str = "\x1b[41m";
+pub(crate) const BG_RED: &str = "41";
 
 /// ANSI escape code for green background.
-pub const BG_GREEN: &str = "\x1b[42m";
+pub(crate) const BG_GREEN: &str = "42";
 
 /// ANSI escape code for yellow background.
-pub const BG_YELLOW: &str = "\x1b[43m";
+pub(crate) const BG_YELLOW: &str = "43";
 
 /// ANSI escape code for blue background.
-pub const BG_BLUE: &str = "\x1b[44m";
+pub(crate) const BG_BLUE: &str = "44";
 
 /// ANSI escape code for magenta background.
-pub const BG_MAGENTA: &str = "\x1b[45m";
+pub(crate) const BG_MAGENTA: &str = "45";
 
 /// ANSI escape code for cyan background.
-pub const BG_CYAN: &str = "\x1b[46m";
+pub(crate) const BG_CYAN: &str = "46";
 
 /// ANSI escape code for white background.
-pub const BG_WHITE: &str = "\x1b[47m";
-
-/// ANSI escape code for bold text formatting.
-pub const BOLD: &str = "\x1b[1m";
+pub(crate) const BG_WHITE: &str = "47";

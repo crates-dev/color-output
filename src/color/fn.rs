@@ -15,7 +15,7 @@ pub fn color256_fg_color(code: u32) -> String {
     let g: u32 = (code >> 8) & 0xFF;
     let b: u32 = code & 0xFF;
     let color_index: u32 = rgb_to_256_color_index(r as u8, g as u8, b as u8);
-    format!("\x1b[38;5;{color_index}m")
+    format!("38;5;{color_index}")
 }
 
 /// Generates an ANSI escape sequence for background colors in 256 colors.
@@ -35,7 +35,7 @@ pub fn color256_bg_color(code: u32) -> String {
     let g: u32 = (code >> 8) & 0xFF;
     let b: u32 = code & 0xFF;
     let color_index: u32 = rgb_to_256_color_index(r as u8, g as u8, b as u8);
-    format!("\x1b[48;5;{color_index}m")
+    format!("48;5;{color_index}")
 }
 
 /// Generates an ANSI escape sequence for true color foreground colors.
@@ -51,7 +51,7 @@ pub fn color256_bg_color(code: u32) -> String {
 /// - `String` - ANSI escape sequence for the true color foreground
 #[inline(always)]
 pub fn rgb_fg_color(r: u8, g: u8, b: u8) -> String {
-    format!("\x1b[38;2;{r};{g};{b}m")
+    format!("38;2;{r};{g};{b}")
 }
 
 /// Generates an ANSI escape sequence for true color background colors.
@@ -67,7 +67,7 @@ pub fn rgb_fg_color(r: u8, g: u8, b: u8) -> String {
 /// - `String` - ANSI escape sequence for the true color background
 #[inline(always)]
 pub fn rgb_bg_color(r: u8, g: u8, b: u8) -> String {
-    format!("\x1b[48;2;{r};{g};{b}m")
+    format!("48;2;{r};{g};{b}")
 }
 
 /// Converts RGB values to 256-color palette index with high precision.

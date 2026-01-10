@@ -21,7 +21,6 @@ fn test_output_struct_output_method() {
         ..Default::default()
     }
     .output();
-
     Output {
         text: "test_output_struct_output",
         color: ColorType::Use(Color::White),
