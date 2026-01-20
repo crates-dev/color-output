@@ -15,13 +15,14 @@ mod utils;
 
 pub use {
     color::r#enum::*,
-    hyperlane_time::*,
     output::{r#fn::*, r#struct::Output},
     output_builder::r#struct::OutputBuilder,
     output_list::r#struct::OutputList,
     output_list_builder::r#struct::OutputListBuilder,
     utils::r#fn::__println_text,
 };
+
+pub use hyperlane_time::*;
 
 pub(crate) use {
     color::{r#const::*, r#fn::*, r#struct::*, r#trait::*},
