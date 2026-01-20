@@ -1,6 +1,7 @@
+use crate::*;
+
 #[test]
 fn test_proc_macro_output_struct() {
-    use crate::*;
     output_macro!(Output {
         text: "test_proc_macro",
         color: ColorType::default(),
@@ -12,7 +13,6 @@ fn test_proc_macro_output_struct() {
 
 #[test]
 fn test_proc_macro_output_builder() {
-    use crate::*;
     output_macro!(
         OutputBuilder::new()
             .text("test_output_builder")
@@ -25,7 +25,6 @@ fn test_proc_macro_output_builder() {
 
 #[test]
 fn test_proc_macro_multiple() {
-    use crate::*;
     output_macro!(
         Output {
             text: "test_proc_macro",
@@ -58,7 +57,6 @@ fn test_proc_macro_multiple() {
 
 #[test]
 fn test_print_type() {
-    use crate::*;
     let msg: &str = "1\n2\n3\r\n4";
     println_success!("{msg}");
     println!("==========");

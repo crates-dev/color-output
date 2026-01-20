@@ -13,18 +13,22 @@ mod task;
 mod text;
 mod utils;
 
-pub use color::r#enum::*;
-pub use hyperlane_time::*;
-pub use output::{r#fn::*, r#struct::Output};
-pub use output_builder::r#struct::OutputBuilder;
-pub use output_list::r#struct::OutputList;
-pub use output_list_builder::r#struct::OutputListBuilder;
-pub use utils::r#fn::__println_text;
+pub use {
+    color::r#enum::*,
+    hyperlane_time::*,
+    output::{r#fn::*, r#struct::Output},
+    output_builder::r#struct::OutputBuilder,
+    output_list::r#struct::OutputList,
+    output_list_builder::r#struct::OutputListBuilder,
+    utils::r#fn::__println_text,
+};
 
-pub(crate) use color::{r#const::*, r#fn::*, r#struct::*, r#trait::*};
-pub(crate) use output_list::r#fn::*;
-pub(crate) use task::r#struct::*;
-pub(crate) use text::r#struct::*;
+pub(crate) use {
+    color::{r#const::*, r#fn::*, r#struct::*, r#trait::*},
+    output_list::r#fn::*,
+    task::r#struct::*,
+    text::r#struct::*,
+};
 
 pub(crate) use std::{
     borrow::Cow,
