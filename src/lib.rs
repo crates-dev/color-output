@@ -14,22 +14,12 @@ mod text;
 mod utils;
 
 pub use {
-    color::r#enum::*,
-    output::{r#fn::*, r#struct::Output},
-    output_builder::r#struct::OutputBuilder,
-    output_list::r#struct::OutputList,
-    output_list_builder::r#struct::OutputListBuilder,
-    utils::r#fn::__println_text,
+    color::*, output::*, output_builder::*, output_list::*, output_list_builder::*, utils::*,
 };
 
 pub use hyperlane_time::*;
 
-pub(crate) use {
-    color::{r#const::*, r#fn::*, r#struct::*, r#trait::*},
-    output_list::r#fn::*,
-    task::r#struct::*,
-    text::r#struct::*,
-};
+pub(crate) use {task::*, text::*};
 
 pub(crate) use std::{
     borrow::Cow,
