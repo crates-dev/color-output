@@ -1,6 +1,7 @@
+use crate::*;
+
 #[test]
 fn test_output_builder_new_from() {
-    use crate::*;
     output(
         OutputBuilder::new()
             .text("test_output_builder")
@@ -23,7 +24,6 @@ fn test_output_builder_new_from() {
 
 #[test]
 fn test_output_builder() {
-    use crate::*;
     OutputBuilder::new()
         .text("test_output_builder_output")
         .bg_color(ColorType::Color256(0xffffff))

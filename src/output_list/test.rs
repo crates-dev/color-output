@@ -1,6 +1,7 @@
+use crate::*;
+
 #[test]
 fn test_output_list_struct() {
-    use crate::*;
     OutputList(vec![
         Output {
             text: "test_output_list_struct_1",

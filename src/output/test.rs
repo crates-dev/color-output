@@ -1,6 +1,7 @@
+use crate::*;
+
 #[test]
 fn test_output_struct_function() {
-    use crate::*;
     output(Output {
         text: "test_output_struct",
         color: ColorType::Use(Color::Default),
@@ -12,7 +13,6 @@ fn test_output_struct_function() {
 
 #[test]
 fn test_output_struct_output_method() {
-    use crate::*;
     Output {
         text: "test_output_struct_output",
         color: ColorType::Use(Color::Default),

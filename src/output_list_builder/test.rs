@@ -1,6 +1,7 @@
+use crate::*;
+
 #[test]
 fn test_new_output_list_builder() {
-    use crate::*;
     OutputListBuilder::new()
         .add(
             OutputBuilder::new()
@@ -28,7 +29,6 @@ fn test_new_output_list_builder() {
 
 #[test]
 fn test_new_from_output_list_builder() {
-    use crate::*;
     OutputListBuilder::new_from(vec![Output::default()])
         .add(
             OutputBuilder::new()

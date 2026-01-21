@@ -1,7 +1,7 @@
+use crate::*;
+
 #[test]
 fn test_text() {
-    use super::r#struct::Text;
-    use crate::*;
     let text_default: Text<'_> = Text::default();
     let text_default_str: &String = &text_default.get_display_str_cow().into_owned();
     let text: Text<'_> = Text {

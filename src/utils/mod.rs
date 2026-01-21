@@ -1,5 +1,5 @@
-pub(crate) mod r#fn;
-pub(crate) mod r#macro;
+mod r#fn;
+mod r#macro;
 
 #[cfg(test)]
 mod test;
