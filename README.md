@@ -10,7 +10,9 @@
 
 </center>
 
-[Official Documentation](https://docs.ltpp.vip/COLOR-OUTPUT/)
+[Official Documentation](https://docs.ltpp.vip/color-output/)
+
+[Api Docs](https://docs.rs/color-output/latest/)
 
 ## Description
 
