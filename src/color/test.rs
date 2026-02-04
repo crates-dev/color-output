@@ -61,3 +61,143 @@ fn test_rgb_bg_color() {
     let ans_color_str: String = format!("48;2;{};{};{}", 0, 0, 0);
     assert_eq!(color_str, ans_color_str);
 }
+
+#[test]
+fn test_output_struct_function() {
+    output(ColorOutput {
+        text: "test_output_struct",
+        color: ColorType::Use(Color::Default),
+        bg_color: ColorType::Color256(0x000000),
+        endl: true,
+        ..Default::default()
+    });
+}
+
+#[test]
+fn test_output_struct_output_method() {
+    ColorOutput {
+        text: "test_output_struct_output",
+        color: ColorType::Use(Color::Default),
+        bg_color: ColorType::Use(Color::Blue),
+        endl: true,
+        ..Default::default()
+    }
+    .output();
+    ColorOutput {
+        text: "test_output_struct_output",
+        color: ColorType::Use(Color::White),
+        bg_color: ColorType::Use(Color::Blue),
+        endl: true,
+        ..Default::default()
+    }
+    .output();
+}
+
+#[test]
+fn test_output_builder_new_from() {
+    output(
+        ColorOutputBuilder::new()
+            .text("test_output_builder")
+            .color(ColorType::Color256(0xffffff))
+            .bg_color(ColorType::Color256(0xffffff))
+            .bold(true)
+            .endl(true)
+            .build(),
+    );
+    output(
+        ColorOutputBuilder::new_from(ColorOutput::default())
+            .text("test_output_builder")
+            .color(ColorType::Color256(0xffffff))
+            .bg_color(ColorType::Color256(0xffffff))
+            .bold(true)
+            .endl(true)
+            .build(),
+    );
+}
+
+#[test]
+fn test_output_builder() {
+    ColorOutputBuilder::new()
+        .text("test_output_builder_output")
+        .bg_color(ColorType::Color256(0xffffff))
+        .color(ColorType::Color256(0xffffff))
+        .bold(true)
+        .endl(true)
+        .build()
+        .output();
+}
+
+#[test]
+fn test_output_list_struct() {
+    ColorOutputList(vec![
+        ColorOutput {
+            text: "test_output_list_struct_1",
+            color: ColorType::Use(Color::Default),
+            bg_color: ColorType::Color256(0x000000),
+            endl: false,
+            ..Default::default()
+        },
+        ColorOutput {
+            text: "test_output_struct_output_2",
+            color: ColorType::Use(Color::Default),
+            bg_color: ColorType::Use(Color::Blue),
+            endl: true,
+            ..Default::default()
+        },
+    ])
+    .output();
+}
+
+#[test]
+fn test_new_output_list_builder() {
+    ColorOutputListBuilder::new()
+        .add(
+            ColorOutputBuilder::new()
+                .text("text")
+                .bg_color(ColorType::Use(Color::Blue))
+                .endl(false)
+                .build(),
+        )
+        .add(ColorOutput {
+            text: "test_new_output_list_builder_1",
+            color: ColorType::Use(Color::Default),
+            bg_color: ColorType::Color256(0x3f3f3f),
+            endl: false,
+            ..Default::default()
+        })
+        .add(ColorOutput {
+            text: "test_new_output_list_builder_2",
+            color: ColorType::Use(Color::Default),
+            bg_color: ColorType::Use(Color::Cyan),
+            endl: true,
+            ..Default::default()
+        })
+        .run();
+}
+
+#[test]
+fn test_new_from_output_list_builder() {
+    ColorOutputListBuilder::new_from(vec![ColorOutput::default()])
+        .add(
+            ColorOutputBuilder::new()
+                .text("text")
+                .bg_color(ColorType::Use(Color::Blue))
+                .endl(false)
+                .build(),
+        )
+        .add(ColorOutput {
+            text: "test_new_from_output_list_builder_1",
+            color: ColorType::Use(Color::Default),
+            bg_color: ColorType::Color256(0x3f3f3f),
+            endl: false,
+            ..Default::default()
+        })
+        .add(ColorOutput {
+            text: "test_new_from_output_list_builder_2",
+            color: ColorType::Use(Color::Default),
+            bg_color: ColorType::Use(Color::Cyan),
+            endl: true,
+            ..Default::default()
+        })
+        .run();
+}

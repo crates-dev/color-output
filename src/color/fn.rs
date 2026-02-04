@@ -1,3 +1,5 @@
+use crate::*;
+
 /// Generates color code for foreground colors in 256 colors.
 ///
 /// # Arguments
@@ -113,4 +115,54 @@ fn rgb_to_256_color_index(r: u8, g: u8, b: u8) -> u32 {
         (b as u32 - 35) / 40
     };
     16 + 36 * r_index + 6 * g_index + b_index
+}
+
+/// Executes the output operation with the given formatting.
+///
+/// # Arguments
+///
+/// - `ColorOutput` - The output configuration
+pub fn output(output: ColorOutput) {
+    let text: &str = output.text;
+    let color: ColorType = output.color;
+    let bg_color: ColorType = output.bg_color;
+    let bold: bool = output.bold;
+    let endl: bool = output.endl;
+    let mut task_list: Task<'_> = Task::default();
+    task_list.add(Text {
+        text,
+        color,
+        bg_color,
+        bold,
+        endl,
+    });
+    task_list.run_all();
+}
+
+/// Executes a sequence of output operations.
+///
+/// # Arguments
+///
+/// - `Vec<ColorOutput>` - Collection of output configurations to execute
+///
+/// # Returns
+///
+/// - `()` - No return value
+pub fn output_list(output_list: &Vec<ColorOutput>) {
+    let mut task_list: Task<'_> = Task::default();
+    for output in output_list {
+        let text: &str = output.text;
+        let color: ColorType = output.color;
+        let bg_color: ColorType = output.bg_color;
+        let bold: bool = output.bold;
+        let endl: bool = output.endl;
+        task_list.add(Text {
+            text,
+            color,
+            bg_color,
+            bold,
+            endl,
+        });
+    }
+    task_list.run_all();
 }

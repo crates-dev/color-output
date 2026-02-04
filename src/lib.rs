@@ -5,17 +5,11 @@
 //! It allows customization of text and background colors.
 
 mod color;
-mod output;
-mod output_builder;
-mod output_list;
-mod output_list_builder;
 mod task;
 mod text;
 mod utils;
 
-pub use {
-    color::*, output::*, output_builder::*, output_list::*, output_list_builder::*, utils::*,
-};
+pub use {color::*, utils::*};
 
 pub use hyperlane_time::*;
 
