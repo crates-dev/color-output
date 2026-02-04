@@ -2,7 +2,7 @@
 ///
 /// # Arguments
 ///
-/// - `Output` or `OutputBuilder` - One or more output instances to execute
+/// - `ColorOutput` or `ColorOutputBuilder` - One or more output instances to execute
 #[macro_export]
 macro_rules! output_macro {
     ($($output:expr),*) => {

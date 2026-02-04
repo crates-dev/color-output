@@ -1,37 +1,37 @@
 use crate::*;
 
-/// Implementation of OutputBuilder methods.
-impl<'a> Default for OutputBuilder<'a> {
+/// Implementation of ColorOutputBuilder methods.
+impl<'a> Default for ColorOutputBuilder<'a> {
     #[inline(always)]
     fn default() -> Self {
         Self::new()
     }
 }
 
-impl<'a> OutputBuilder<'a> {
-    /// Creates a new OutputBuilder instance.
+impl<'a> ColorOutputBuilder<'a> {
+    /// Creates a new ColorOutputBuilder instance.
     ///
     /// # Returns
     ///
-    /// - `OutputBuilder<'a>` - The new builder instance.
+    /// - `ColorOutputBuilder<'a>` - The new builder instance.
     #[inline(always)]
     pub fn new() -> Self {
         Self {
-            output: Output::default(),
+            output: ColorOutput::default(),
         }
     }
 
-    /// Creates a new OutputBuilder from existing Output.
+    /// Creates a new ColorOutputBuilder from existing ColorOutput.
     ///
     /// # Arguments
     ///
-    /// - `Output` - The output configuration to initialize from
+    /// - `ColorOutput` - The output configuration to initialize from
     ///
     /// # Returns
     ///
-    /// - `OutputBuilder` - The new builder instance
+    /// - `ColorOutputBuilder` - The new builder instance
     #[inline(always)]
-    pub fn new_from(output: Output<'a>) -> Self {
+    pub fn new_from(output: ColorOutput<'a>) -> Self {
         Self { output }
     }
 
@@ -110,17 +110,17 @@ impl<'a> OutputBuilder<'a> {
         self
     }
 
-    /// Builds the final Output.
+    /// Builds the final ColorOutput.
     ///
     /// # Returns
     ///
-    /// - `Output<'a>` - The constructed output.
+    /// - `ColorOutput<'a>` - The constructed output.
     #[inline(always)]
-    pub fn build(&'_ self) -> Output<'_> {
+    pub fn build(&'_ self) -> ColorOutput<'_> {
         self.output
     }
 
-    /// Outputs the current state.
+    /// ColorOutputs the current state.
     ///
     /// # Returns
     ///

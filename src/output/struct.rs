@@ -2,7 +2,7 @@ use crate::*;
 
 /// Represents a colored text output with formatting options.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
-pub struct Output<'a> {
+pub struct ColorOutput<'a> {
     /// The text content to output.
     pub text: &'a str,
     /// The text color.

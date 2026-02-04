@@ -1,8 +1,8 @@
 use crate::*;
 
-/// Represents a list of Output configurations for sequential execution.
+/// Represents a list of ColorOutput configurations for sequential execution.
 #[derive(Clone, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
-pub struct OutputList<'a>(
-    /// Collection of Output configurations to execute in sequence
-    pub Vec<Output<'a>>,
+pub struct ColorOutputList<'a>(
+    /// Collection of ColorOutput configurations to execute in sequence
+    pub Vec<ColorOutput<'a>>,
 );

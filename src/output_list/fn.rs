@@ -4,12 +4,12 @@ use crate::*;
 ///
 /// # Arguments
 ///
-/// - `Vec<Output>` - Collection of output configurations to execute
+/// - `Vec<ColorOutput>` - Collection of output configurations to execute
 ///
 /// # Returns
 ///
 /// - `()` - No return value
-pub fn output_list(output_list: &Vec<Output>) {
+pub fn output_list(output_list: &Vec<ColorOutput>) {
     let mut task_list: Task<'_> = Task::default();
     for output in output_list {
         let text: &str = output.text;

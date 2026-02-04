@@ -3,7 +3,7 @@ use crate::*;
 #[test]
 fn test_output_builder_new_from() {
     output(
-        OutputBuilder::new()
+        ColorOutputBuilder::new()
             .text("test_output_builder")
             .color(ColorType::Color256(0xffffff))
             .bg_color(ColorType::Color256(0xffffff))
@@ -12,7 +12,7 @@ fn test_output_builder_new_from() {
             .build(),
     );
     output(
-        OutputBuilder::new_from(Output::default())
+        ColorOutputBuilder::new_from(ColorOutput::default())
             .text("test_output_builder")
             .color(ColorType::Color256(0xffffff))
             .bg_color(ColorType::Color256(0xffffff))
@@ -24,7 +24,7 @@ fn test_output_builder_new_from() {
 
 #[test]
 fn test_output_builder() {
-    OutputBuilder::new()
+    ColorOutputBuilder::new()
         .text("test_output_builder_output")
         .bg_color(ColorType::Color256(0xffffff))
         .color(ColorType::Color256(0xffffff))

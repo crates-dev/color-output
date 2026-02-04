@@ -1,10 +1,10 @@
 use crate::*;
 
-/// Default implementation for Output with empty configuration.
-impl<'a> Default for Output<'a> {
+/// Default implementation for ColorOutput with empty configuration.
+impl<'a> Default for ColorOutput<'a> {
     #[inline(always)]
     fn default() -> Self {
-        Output {
+        ColorOutput {
             text: "",
             color: ColorType::default(),
             bg_color: ColorType::default(),
@@ -14,7 +14,7 @@ impl<'a> Default for Output<'a> {
     }
 }
 
-impl<'a> Output<'a> {
+impl<'a> ColorOutput<'a> {
     /// Executes the output operation with current configuration.
     ///
     /// # Returns

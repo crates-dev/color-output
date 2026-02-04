@@ -4,8 +4,8 @@ use crate::*;
 ///
 /// # Arguments
 ///
-/// - `Output` - The output configuration
-pub fn output(output: Output) {
+/// - `ColorOutput` - The output configuration
+pub fn output(output: ColorOutput) {
     let text: &str = output.text;
     let color: ColorType = output.color;
     let bg_color: ColorType = output.bg_color;

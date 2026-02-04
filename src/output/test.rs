@@ -2,7 +2,7 @@ use crate::*;
 
 #[test]
 fn test_output_struct_function() {
-    output(Output {
+    output(ColorOutput {
         text: "test_output_struct",
         color: ColorType::Use(Color::Default),
         bg_color: ColorType::Color256(0x000000),
@@ -13,7 +13,7 @@ fn test_output_struct_function() {
 
 #[test]
 fn test_output_struct_output_method() {
-    Output {
+    ColorOutput {
         text: "test_output_struct_output",
         color: ColorType::Use(Color::Default),
         bg_color: ColorType::Use(Color::Blue),
@@ -21,7 +21,7 @@ fn test_output_struct_output_method() {
         ..Default::default()
     }
     .output();
-    Output {
+    ColorOutput {
         text: "test_output_struct_output",
         color: ColorType::Use(Color::White),
         bg_color: ColorType::Use(Color::Blue),

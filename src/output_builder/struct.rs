@@ -1,8 +1,8 @@
 use crate::*;
 
-/// Builder pattern for constructing Output configurations.
+/// Builder pattern for constructing ColorOutput configurations.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
-pub struct OutputBuilder<'a> {
-    /// The Output configuration being built.
-    pub output: Output<'a>,
+pub struct ColorOutputBuilder<'a> {
+    /// The ColorOutput configuration being built.
+    pub output: ColorOutput<'a>,
 }

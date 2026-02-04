@@ -1,59 +1,59 @@
 use crate::*;
 
-impl<'a> Default for OutputList<'a> {
-    /// Provides a default implementation for OutputList.
+impl<'a> Default for ColorOutputList<'a> {
+    /// Provides a default implementation for ColorOutputList.
     ///
     /// # Returns
     ///
-    /// - `OutputList` - New instance containing a single default Output
+    /// - `ColorOutputList` - New instance containing a single default ColorOutput
     #[inline(always)]
     fn default() -> Self {
-        OutputList(vec![Output::<'a>::default()])
+        ColorOutputList(vec![ColorOutput::<'a>::default()])
     }
 }
 
-impl<'a> Deref for OutputList<'a> {
-    type Target = Vec<Output<'a>>;
+impl<'a> Deref for ColorOutputList<'a> {
+    type Target = Vec<ColorOutput<'a>>;
 
-    /// Dereferences OutputList to its internal Vec of Outputs.
+    /// Dereferences ColorOutputList to its internal Vec of ColorOutputs.
     ///
     /// # Returns
     ///
-    /// - `&Vec<Output>` - Reference to the internal vector of outputs
+    /// - `&Vec<ColorOutput>` - Reference to the internal vector of outputs
     #[inline(always)]
     fn deref(&self) -> &Self::Target {
         &self.0
     }
 }
 
-impl<'a> IntoIterator for &'a OutputList<'a> {
-    type Item = &'a Output<'a>;
-    type IntoIter = Iter<'a, Output<'a>>;
+impl<'a> IntoIterator for &'a ColorOutputList<'a> {
+    type Item = &'a ColorOutput<'a>;
+    type IntoIter = Iter<'a, ColorOutput<'a>>;
 
     /// Returns an iterator over the elements of the internal Vec.
     ///
     /// # Returns
     ///
-    /// - `Iter<Output>` - Iterator over references to Output elements
+    /// - `Iter<ColorOutput>` - Iterator over references to ColorOutput elements
     #[inline(always)]
     fn into_iter(self) -> Self::IntoIter {
         self.0.iter()
     }
 }
 
-impl<'a> OutputList<'a> {
-    /// Provides an iterator over the elements in the internal `Vec<Output<'a>>`.
+impl<'a> ColorOutputList<'a> {
+    /// Provides an iterator over the elements in the internal `Vec<ColorOutput<'a>>`.
     ///
     /// # Returns
-    /// - `Iter<'_, Output<'a>>`: An iterator over references to `Output` elements.
+    /// - `Iter<'_, ColorOutput<'a>>`: An iterator over references to `ColorOutput` elements.
     #[inline(always)]
-    pub fn iter(&self) -> std::slice::Iter<'_, Output<'a>> {
+    pub fn iter(&self) -> std::slice::Iter<'_, ColorOutput<'a>> {
         self.0.iter()
     }
 
-    /// Outputs the content of each `Output` in the list.
+    /// ColorOutputs the content of each `ColorOutput` in the list.
     ///
-    /// This method clones the `OutputList` and iterates through its elements, calling the `output` method on each cloned `Output`.
+    /// This method clones the `ColorOutputList` and iterates through its elements, calling the `output` method on each cloned `ColorOutput`.
     ///
     /// # Returns
     /// - `()` : Nothing is returned.
