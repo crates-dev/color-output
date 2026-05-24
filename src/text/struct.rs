@@ -4,15 +4,15 @@ use crate::*;
 ///
 /// Used for building formatted console output with various display attributes.
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
-pub(crate) struct Text<'a> {
+pub struct Text<'a> {
     /// The actual text content.
-    pub(crate) text: &'a str,
+    pub text: &'a str,
     /// The color of the text.
-    pub(crate) color: ColorType,
+    pub color: ColorType,
     /// The background color of the text.
-    pub(crate) bg_color: ColorType,
+    pub bg_color: ColorType,
     /// Whether the text should be bold.
-    pub(crate) bold: bool,
+    pub bold: bool,
     /// Whether to add newline after the text
-    pub(crate) endl: bool,
+    pub endl: bool,
 }

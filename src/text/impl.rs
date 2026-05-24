@@ -37,7 +37,7 @@ impl<'a> Text<'a> {
     ///
     /// # Returns
     /// - `Cow<'a, str>`: An owned copy of the formatted string.
-    pub(crate) fn get_display_str_cow(&self) -> Cow<'a, str> {
+    pub fn get_display_str_cow(&self) -> Cow<'a, str> {
         let text: &str = self.text;
         let bold: bool = self.bold;
         let adjusted_color: ColorType = if matches!(self.color, ColorType::Use(Color::Default)) {

@@ -1,7 +1,7 @@
 use crate::*;
 
 /// Trait for converting colors to their ANSI escape sequences.
-pub(crate) trait ColorDisplay {
+pub trait ColorDisplay {
     /// Gets the ANSI escape sequence for the color.
     ///
     /// # Arguments

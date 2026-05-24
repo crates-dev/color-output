@@ -9,11 +9,9 @@ mod task;
 mod text;
 mod utils;
 
-pub use {color::*, utils::*};
+pub use {color::*, task::*, text::*, utils::*};
 
 pub use hyperlane_time::*;
-
-use {task::*, text::*};
 
 use std::{
     borrow::Cow,
