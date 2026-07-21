@@ -8,3 +8,5 @@ mod r#trait;
 pub use {r#enum::*, r#fn::*, r#struct::*, r#trait::*};
 
 pub(crate) use r#const::*;
+
+use super::*;

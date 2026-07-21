@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 
 pub fn __println_text(color: ColorType, bg_color: ColorType, text: &str) {
     let binding: String = format!("[{}]", time());

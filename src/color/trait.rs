@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 
 /// Trait for converting colors to their ANSI escape sequences.
 pub trait ColorDisplay {

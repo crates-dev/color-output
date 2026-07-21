@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 
 /// Default implementation for Text with empty content and default styling.
 impl<'a> Default for Text<'a> {

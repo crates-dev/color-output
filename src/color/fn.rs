@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 
 /// Generates color code for foreground colors in 256 colors.
 ///
@@ -13,10 +13,10 @@ pub fn color256_fg_color(code: u32) -> String {
     if code > 0xFFFFFF {
         return String::new();
     }
-    let r: u32 = (code >> 16) & 0xFF;
-    let g: u32 = (code >> 8) & 0xFF;
-    let b: u32 = code & 0xFF;
-    let color_index: u32 = rgb_to_256_color_index(r as u8, g as u8, b as u8);
+    let red: u32 = (code >> 16) & 0xFF;
+    let green: u32 = (code >> 8) & 0xFF;
+    let blue: u32 = code & 0xFF;
+    let color_index: u32 = rgb_to_256_color_index(red as u8, green as u8, blue as u8);
     format!("38;5;{color_index}")
 }
 
@@ -33,10 +33,10 @@ pub fn color256_bg_color(code: u32) -> String {
     if code > 0xFFFFFF {
         return String::new();
     }
-    let r: u32 = (code >> 16) & 0xFF;
-    let g: u32 = (code >> 8) & 0xFF;
-    let b: u32 = code & 0xFF;
-    let color_index: u32 = rgb_to_256_color_index(r as u8, g as u8, b as u8);
+    let red: u32 = (code >> 16) & 0xFF;
+    let green: u32 = (code >> 8) & 0xFF;
+    let blue: u32 = code & 0xFF;
+    let color_index: u32 = rgb_to_256_color_index(red as u8, green as u8, blue as u8);
     format!("48;5;{color_index}")
 }
 

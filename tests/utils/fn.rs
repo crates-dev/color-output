@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 
 #[test]
 fn test_proc_macro_output_struct() {

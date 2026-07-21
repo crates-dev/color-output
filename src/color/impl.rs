@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 
 impl ColorDisplay for Color {
     fn get_str(&self, display_type: DisplayType) -> String {
@@ -127,12 +127,12 @@ impl ColorContrast {
     /// - `(u8, u8, u8)` - RGB values
     pub fn extract_rgb_from_color_type(color: &ColorType) -> (u8, u8, u8) {
         match color {
-            ColorType::Rgb(r, g, b) => (*r, *g, *b),
+            ColorType::Rgb(red, green, blue) => (*red, *green, *blue),
             ColorType::Color256(hex) => {
-                let r: u8 = ((hex >> 16) & 0xFF) as u8;
-                let g: u8 = ((hex >> 8) & 0xFF) as u8;
-                let b: u8 = (hex & 0xFF) as u8;
-                (r, g, b)
+                let red: u8 = ((hex >> 16) & 0xFF) as u8;
+                let green: u8 = ((hex >> 8) & 0xFF) as u8;
+                let blue: u8 = (hex & 0xFF) as u8;
+                (red, green, blue)
             }
             ColorType::Use(color) => {
                 use super::r#enum::Color;

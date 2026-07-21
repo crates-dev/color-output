@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 
 /// Configurable text display with color, background and style options.
 ///

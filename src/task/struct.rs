@@ -1,4 +1,4 @@
-use crate::*;
+use super::*;
 
 /// Represents a collection of text tasks to be executed sequentially.
 #[derive(Clone, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
